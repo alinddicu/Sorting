@@ -8,9 +8,8 @@
 
 	public class Insertion
 	{
-		public IEnumerable<int> Execute(IEnumerable<int> input)
+		public IEnumerable<int> Execute(IEnumerable<int> unsortedList)
 		{
-			var unsortedList = Copy(input).ToList();
 			var sortedList = new List<int>();
 			foreach (var unsortedItem in unsortedList)
 			{
@@ -39,14 +38,5 @@
 
 			return sortedList;
 		}
-
-		private IEnumerable<int> Copy(IEnumerable<int> input)
-		{
-			foreach (var item in input)
-			{
-				yield return item;
-			}
-		}
-
 	}
 }
