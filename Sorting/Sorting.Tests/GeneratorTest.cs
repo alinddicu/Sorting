@@ -10,7 +10,7 @@ namespace Sorting.Tests
 		[TestMethod]
 		public void GivenFrom1To100WhenExecuteThanSequenceIsCorrect()
 		{
-			var array = new NoDoublesGenerator().Execute();
+			var array = new NoDoublesGenerator().Execute(100);
 
 			Check.That(array.Sum(i => i)).IsEqualTo(5050);
 		}
