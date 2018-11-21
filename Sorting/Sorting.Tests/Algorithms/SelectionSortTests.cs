@@ -6,17 +6,17 @@
 	using System.Linq;
 
 	[TestClass]
-	public class InsertionSortTests
+	public class SelectionSortTests
 	{
 
 		[TestMethod]
-		public void GivenInsertionWhenExecuteThenResultIsOrdered()
+		public void GivenSelectionWhenExecuteThenResultIsOrdered()
 		{
 			var topLimit = 100;
 			var expected = Enumerable.Range(1, topLimit).ToArray();
 			var testArray = new NoDoublesGenerator().Execute(topLimit);
 			//var testArray = new[] { 5, 4, 3, 2, 1 };
-			var result = new InsertionSort().Execute(testArray).ToArray();
+			var result = new SelectionSort().Execute(testArray).ToArray();
 
 			Check.That(result).IsEqualTo(expected);
 		}

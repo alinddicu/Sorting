@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Algorithms\BubbleSort.cs" />
     <Compile Include="Algorithms\InsertionSort.cs" />
+    <Compile Include="Algorithms\SelectionSort.cs" />
     <Compile Include="NoDoublesGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
