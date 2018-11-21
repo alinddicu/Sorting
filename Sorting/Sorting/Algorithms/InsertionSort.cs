@@ -6,7 +6,7 @@
 	using System.Text;
 	using System.Threading.Tasks;
 
-	public class Insertion
+	public class InsertionSort
 	{
 		public IEnumerable<int> Execute(IEnumerable<int> unsortedList)
 		{

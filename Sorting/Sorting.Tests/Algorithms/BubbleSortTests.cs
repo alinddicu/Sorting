@@ -6,17 +6,14 @@
 	using System.Linq;
 
 	[TestClass]
-	public class InsertionTests
+	public class BubbleSortTests
 	{
-
 		[TestMethod]
-		public void GivenInsertionWhenExecuteThenResultIsOrdered()
+		public void GivenBubbleWhenExecuteThenResultIsOrdered()
 		{
-			var topLimit = 5;
+			var topLimit = 100;
 			var expected = Enumerable.Range(1, topLimit).ToArray();
-			var testArray = new NoDoublesGenerator().Execute(topLimit);
-			//var testArray = new[] { 5, 4, 3, 2, 1 };
-			var result = new Insertion().Execute(testArray).ToArray();
+			var result = new BubbleSort().Execute(new NoDoublesGenerator().Execute(topLimit)).ToArray();
 
 			Check.That(result).IsEqualTo(expected);
 		}

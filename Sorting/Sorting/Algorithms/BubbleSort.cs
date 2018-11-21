@@ -4,7 +4,7 @@
 	using System;
 	using System.Collections.Generic;
 
-	public class Bubble
+	public class BubbleSort
 	{
 		public IEnumerable<int> Execute(IEnumerable<int> input)
 		{
