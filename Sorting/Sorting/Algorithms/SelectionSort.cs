@@ -3,42 +3,39 @@
 	using System.Collections.Generic;
 	using System.Linq;
 
-	public class SelectionSort
+	public class SelectionSort: SortBase
 	{
-		public IEnumerable<int> Execute(IEnumerable<int> unsortedList)
+		public override IEnumerable<int> Execute(IEnumerable<int> unsortedList)
 		{
 			var sortedList = Copy(unsortedList).ToList();
 			var count = sortedList.Count;
 
-			for (int i = count - 1; i >= 0; i--)
+			for (var i = count - 1; i >= 0; i--)
 			{
 				var minValue = GetMin(sortedList, i);
 				sortedList.RemoveAt(minValue.Position);
 				sortedList.Add(minValue.Value);
+
+				IntermediateSorts.Add(sortedList);
 			}
 
 			return sortedList;
 		}
-		private IEnumerable<int> Copy(IEnumerable<int> input)
-		{
-			foreach (var item in input)
-			{
-				yield return item;
-			}
-		}
 
-		private MinValue GetMin(IList<int> values, int limit)
+		private static MinValue GetMin(IList<int> values, int limit)
 		{
 			var position = 0;
 			var min = values[position];
-			for (int i = 0; i <= limit; i++)
+			for (var i = 0; i <= limit; i++)
 			{
 				var item = values[i];
-				if (item < min)
+				if (item >= min)
 				{
-					min = item;
-					position = i;
+					continue;
 				}
+
+				min = item;
+				position = i;
 			}
 
 			return new MinValue(min, position);

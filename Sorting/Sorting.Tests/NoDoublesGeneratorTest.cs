@@ -5,7 +5,7 @@ using NFluent;
 namespace Sorting.Tests
 {
 	[TestClass]
-	public class GeneratorTest
+	public class NoDoublesGeneratorTest
 	{
 		[TestMethod]
 		public void GivenFrom1To100WhenExecuteThanSequenceIsCorrect()

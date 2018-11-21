@@ -59,7 +59,7 @@
     <Compile Include="Algorithms\BubbleSortTests.cs" />
     <Compile Include="Algorithms\InsertionSortTests.cs" />
     <Compile Include="Algorithms\SelectionSortTests.cs" />
-    <Compile Include="GeneratorTest.cs" />
+    <Compile Include="NoDoublesGeneratorTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

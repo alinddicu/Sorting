@@ -1,20 +1,16 @@
 ﻿namespace Sorting.Algorithms
 {
-	using System;
 	using System.Collections.Generic;
-	using System.Linq;
-	using System.Text;
-	using System.Threading.Tasks;
 
-	public class InsertionSort
+	public class InsertionSort : SortBase
 	{
-		public IEnumerable<int> Execute(IEnumerable<int> unsortedList)
+		public override IEnumerable<int> Execute(IEnumerable<int> unsortedList)
 		{
 			var sortedList = new List<int>();
 			foreach (var unsortedItem in unsortedList)
 			{
 				var inserted = false;
-				for (int i = sortedList.Count - 1; !inserted && i >= 0; i--)
+				for (var i = sortedList.Count - 1; !inserted && i >= 0; i--)
 				{
 					var sortedItem = sortedList[i];
 					int? sortedItemMinus1 = null;
@@ -27,12 +23,14 @@
 					{
 						sortedList.Insert(i, unsortedItem);
 						inserted = true;
+						IntermediateSorts.Add(sortedList);
 					}
 				}
 
 				if (!inserted)
 				{
 					sortedList.Add(unsortedItem);
+					IntermediateSorts.Add(sortedList);
 				}
 			}
 

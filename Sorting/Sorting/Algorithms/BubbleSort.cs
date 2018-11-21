@@ -1,41 +1,33 @@
 ﻿namespace Sorting.Algorithms
 {
 	using System.Linq;
-	using System;
 	using System.Collections.Generic;
 
-	public class BubbleSort
+	public class BubbleSort: SortBase
 	{
-		public IEnumerable<int> Execute(IEnumerable<int> input)
+		public override IEnumerable<int> Execute(IEnumerable<int> input)
 		{
-			var copy = Copy(input).ToArray();
-			var inversion = false;
+			var sortedList = Copy(input).ToArray();
+			bool inversion;
 
 			do
 			{
 				inversion = false;
-				for (int i = 0; i < copy.Length - 1; i++)
+				for (var i = 0; i < sortedList.Length - 1; i++)
 				{
-					var left = copy[i];
-					var right = copy[i + 1];
+					var left = sortedList[i];
+					var right = sortedList[i + 1];
 					if (left > right)
 					{
-						copy[i] = right;
-						copy[i + 1] = left;
+						sortedList[i] = right;
+						sortedList[i + 1] = left;
 						inversion = true;
+						IntermediateSorts.Add(sortedList);
 					}
 				}
 			} while (inversion);
 
-			return copy;
-		}
-
-		private IEnumerable<int> Copy(IEnumerable<int> input)
-		{
-			foreach (var item in input)
-			{
-				yield return item;
-			}
+			return sortedList;
 		}
 	}
 }
