@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Algorithms\Bubble.cs" />
+    <Compile Include="Algorithms\Insertion.cs" />
     <Compile Include="NoDoublesGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
