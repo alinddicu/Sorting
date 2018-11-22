@@ -28,24 +28,24 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.panel = new System.Windows.Forms.Panel();
+			this.button1 = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
-			// panel
+			// button1
 			// 
-			this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panel.Location = new System.Drawing.Point(0, 0);
-			this.panel.Name = "panel";
-			this.panel.Size = new System.Drawing.Size(553, 374);
-			this.panel.TabIndex = 0;
-			this.panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Paint);
+			this.button1.Location = new System.Drawing.Point(293, 231);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(75, 23);
+			this.button1.TabIndex = 0;
+			this.button1.Text = "button1";
+			this.button1.UseVisualStyleBackColor = true;
 			// 
 			// BenchmarkForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(553, 374);
-			this.Controls.Add(this.panel);
+			this.Controls.Add(this.button1);
 			this.Name = "BenchmarkForm";
 			this.Text = "Sorting algorithms benchmark";
 			this.ResumeLayout(false);
@@ -54,6 +54,6 @@
 
 		#endregion
 
-		private System.Windows.Forms.Panel panel;
+		private System.Windows.Forms.Button button1;
 	}
 }

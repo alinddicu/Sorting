@@ -2,7 +2,6 @@
 {
 	using System.Drawing;
 	using System.Linq;
-	using System.Threading;
 	using System.Windows.Forms;
 
 	using Sorting;
@@ -13,8 +12,31 @@
 		public BenchmarkForm()
 		{
 			InitializeComponent();
-		}
 
+			var unsortedList = new UniqueElementsGenerator().Execute(100).ToArray();
+
+			//var bubblePanel = new BenchPanel(new BubbleSort(), unsortedList)
+			//{
+			//	BackColor = Color.Black,
+			//	Location = new Point(0, 0)
+			//};
+			//Controls.Add(bubblePanel);
+
+			//var insertionPanel = new BenchPanel(new InsertionSort(), unsortedList)
+			//{
+			//	BackColor = Color.Black,
+			//	Location = new Point(101, 0)
+			//};
+			//Controls.Add(insertionPanel);
+
+			var selectionPanel = new BenchPanel(new InsertionSort(), unsortedList)
+			{
+				BackColor = Color.Black,
+				Location = new Point(201, 0)
+			};
+			Controls.Add(selectionPanel);
+		}
+		/*
 		private void panel_Paint(object sender, PaintEventArgs e)
 		{
 			var unsortedList = new UniqueElementsGenerator().Execute(100).ToArray();
@@ -41,5 +63,6 @@
 				e.Graphics.Clear(panel.BackColor);
 			}
 		}
+		*/
 	}
 }
