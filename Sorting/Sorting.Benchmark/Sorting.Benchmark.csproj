@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Benchmark.cs" />
+    <Compile Include="BenchBackgroundWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="BenchmarkForm.cs">
       <SubType>Form</SubType>
     </Compile>
