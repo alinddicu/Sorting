@@ -2,6 +2,7 @@
 {
 	using System.Drawing;
 	using System.Linq;
+	using System.Threading;
 	using System.Windows.Forms;
 
 	using Sorting;
@@ -20,15 +21,24 @@
 			var bubble = new BubbleSort();
 			bubble.Execute(unsortedList);
 
-			var pen = new Pen(Color.Black);
+			panel.BackColor = Color.Black;
+			var pen = new Pen(Color.DarkGreen);
 
-			var numbers = bubble.IntermediateSorts.First().ToArray();
 			var height = panel.Height;
-			for (var i = 0; i < numbers.Length; i++)
+			var intermediateSorts = bubble.IntermediateSorts;
+			foreach (var intermediateSort in intermediateSorts)
 			{
-				var x = i;
-				var number = numbers[i];
-				e.Graphics.DrawLine(pen, x, height, x, height - number);
+				var numbers = intermediateSort.ToArray();
+				for (var i = 0; i < numbers.Length; i++)
+				{
+					var x = i + 10;
+					var number = numbers[i];
+					//e.Graphics.DrawRectangle(pen, i + 11, height, 10, number);
+					e.Graphics.DrawLine(pen, x, height, x, height - number);
+				}
+
+				Thread.Sleep(10);
+				e.Graphics.Clear(panel.BackColor);
 			}
 		}
 	}
