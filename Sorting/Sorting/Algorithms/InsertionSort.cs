@@ -23,16 +23,16 @@
 					{
 						sortedList.Insert(i, unsortedItem);
 						inserted = true;
-						IntermediateSorts.Add(sortedList);
 					}
 				}
 
 				if (!inserted)
 				{
 					sortedList.Add(unsortedItem);
-					IntermediateSorts.Add(sortedList);
-				}
-			}
+                }
+
+                IntermediateSorts.Add(sortedList);
+            }
 
 			return sortedList;
 		}
