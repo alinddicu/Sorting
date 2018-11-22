@@ -28,24 +28,20 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.button1 = new System.Windows.Forms.Button();
+			this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
 			this.SuspendLayout();
 			// 
-			// button1
+			// backgroundWorker1
 			// 
-			this.button1.Location = new System.Drawing.Point(293, 231);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(75, 23);
-			this.button1.TabIndex = 0;
-			this.button1.Text = "button1";
-			this.button1.UseVisualStyleBackColor = true;
+			this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+			this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
+			this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
 			// 
 			// BenchmarkForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(553, 374);
-			this.Controls.Add(this.button1);
 			this.Name = "BenchmarkForm";
 			this.Text = "Sorting algorithms benchmark";
 			this.ResumeLayout(false);
@@ -54,6 +50,6 @@
 
 		#endregion
 
-		private System.Windows.Forms.Button button1;
+		private System.ComponentModel.BackgroundWorker backgroundWorker1;
 	}
 }

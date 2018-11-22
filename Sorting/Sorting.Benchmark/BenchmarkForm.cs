@@ -1,7 +1,9 @@
 ﻿namespace Sort.Benchmark
 {
+	using System.ComponentModel;
 	using System.Drawing;
 	using System.Linq;
+	using System.Threading;
 	using System.Windows.Forms;
 
 	using Sorting;
@@ -9,18 +11,22 @@
 
 	public partial class BenchmarkForm : Form
 	{
+		private readonly BenchPanel _selectionPanel;
+
 		public BenchmarkForm()
 		{
 			InitializeComponent();
 
 			var unsortedList = new UniqueElementsGenerator().Execute(100).ToArray();
 
-			//var bubblePanel = new BenchPanel(new BubbleSort(), unsortedList)
-			//{
-			//	BackColor = Color.Black,
-			//	Location = new Point(0, 0)
-			//};
-			//Controls.Add(bubblePanel);
+			_selectionPanel = new BenchPanel(new BubbleSort(), unsortedList)
+			{
+				BackColor = Color.Black,
+				Location = new Point(0, 0)
+			};
+			Controls.Add(_selectionPanel);
+			backgroundWorker1.WorkerReportsProgress = true;
+			backgroundWorker1.RunWorkerAsync();
 
 			//var insertionPanel = new BenchPanel(new InsertionSort(), unsortedList)
 			//{
@@ -29,40 +35,48 @@
 			//};
 			//Controls.Add(insertionPanel);
 
-			var selectionPanel = new BenchPanel(new InsertionSort(), unsortedList)
-			{
-				BackColor = Color.Black,
-				Location = new Point(201, 0)
-			};
-			Controls.Add(selectionPanel);
+			//var bubblePanel = new BenchPanel(new BubbleSort(), unsortedList)
+			//{
+			//	BackColor = Color.Black,
+			//	Location = new Point(202, 0)
+			//};
+			//Controls.Add(bubblePanel);
 		}
-		/*
-		private void panel_Paint(object sender, PaintEventArgs e)
+
+		private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
 		{
-			var unsortedList = new UniqueElementsGenerator().Execute(100).ToArray();
-			var bubble = new BubbleSort();
-			bubble.Execute(unsortedList);
-
-			panel.BackColor = Color.Black;
-			var pen = new Pen(Color.DarkGreen);
-
-			var height = panel.Height;
-			var intermediateSorts = bubble.IntermediateSorts;
-			foreach (var intermediateSort in intermediateSorts)
+			var worker = sender as BackgroundWorker;
+			
+			var intermediateSorts = _selectionPanel.IntermediateSorts.ToArray();
+			for (var i = 0; i < intermediateSorts.Length; i++)
 			{
-				var numbers = intermediateSort.ToArray();
-				for (var i = 0; i < numbers.Length; i++)
-				{
-					var x = i + 10;
-					var number = numbers[i];
-					//e.Graphics.DrawRectangle(pen, i + 11, height, 10, number);
-					e.Graphics.DrawLine(pen, x, height, x, height - number);
-				}
-
 				Thread.Sleep(10);
-				e.Graphics.Clear(panel.BackColor);
+				var intermediateSort = intermediateSorts[i];
+				worker.ReportProgress(i, new BenchProgessChanged(intermediateSort));
 			}
 		}
-		*/
+
+		private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+		{
+			var graphics = _selectionPanel.CreateGraphics();
+			var benchProgessChanged = (BenchProgessChanged) e.UserState;
+			graphics.Clear(_selectionPanel.BackColor);
+			var numbers = benchProgessChanged.IntermediateSort.ToArray();
+			var pen = new Pen(Color.DarkGreen);
+			var height = _selectionPanel.Height;
+			for (var i = 0; i < numbers.Length; i++)
+			{
+				var x = i;
+				var number = numbers[i];
+				graphics.DrawLine(pen, x, height, x, height - number);
+			}
+
+			//_selectionPanel.Refresh();
+		}
+
+		private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+		{
+
+		}
 	}
 }
