@@ -1,6 +1,8 @@
 ﻿namespace Sorting
 {
-	using System.Collections.Generic;
+    using System;
+    using System.Linq;
+    using System.Collections.Generic;
 
 	public abstract class SortBase
 	{
@@ -15,5 +17,15 @@
 				yield return item;
 			}
 		}
+
+        protected void AddToIntermediateSorts(ICollection<int> intermediatSort)
+        {
+            IntermediateSorts.Add(Copy(intermediatSort).ToList());
+        }
+
+        protected void Log(ICollection<int> collection)
+        {
+            Console.WriteLine("[" + string.Join(", ", collection) + "]");
+        }
 	}
 }

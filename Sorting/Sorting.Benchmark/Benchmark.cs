@@ -9,12 +9,12 @@
     {
 	    public void Execute()
 	    {
-			var unsortedList = new NoDoublesGenerator().Execute(5).ToArray();
-			var bubble = new BubbleSort();
-		    bubble.Execute(unsortedList);
-			var insertion = new InsertionSort();
-		    insertion.Execute(unsortedList);
-			var selection = new SelectionSort();
+			var unsortedList = new NoDoublesGenerator().Execute(100).ToArray();
+            var bubble = new BubbleSort();
+            bubble.Execute(unsortedList);
+            var insertion = new InsertionSort();
+            insertion.Execute(unsortedList);
+            var selection = new SelectionSort();
 		    selection.Execute(unsortedList);
 	    }
     }

@@ -22,16 +22,16 @@
 					if (unsortedItem < sortedItem && (!sortedItemMinus1.HasValue || unsortedItem > sortedItemMinus1))
 					{
 						sortedList.Insert(i, unsortedItem);
-						inserted = true;
+                        AddToIntermediateSorts(sortedList);
+                        inserted = true;
 					}
 				}
 
 				if (!inserted)
 				{
 					sortedList.Add(unsortedItem);
+                    AddToIntermediateSorts(sortedList);
                 }
-
-                IntermediateSorts.Add(sortedList);
             }
 
 			return sortedList;

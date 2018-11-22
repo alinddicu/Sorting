@@ -22,8 +22,8 @@
 						sortedList[i] = right;
 						sortedList[i + 1] = left;
 						inversion = true;
-						IntermediateSorts.Add(sortedList);
-					}
+                        AddToIntermediateSorts(sortedList);
+                    }
 				}
 			} while (inversion);
 

@@ -1,6 +1,7 @@
 ﻿namespace Sorting.Algorithms
 {
-	using System.Collections.Generic;
+    using System;
+    using System.Collections.Generic;
 	using System.Linq;
 
 	public class SelectionSort: SortBase
@@ -16,8 +17,8 @@
 				sortedList.RemoveAt(minValue.Position);
 				sortedList.Add(minValue.Value);
 
-				IntermediateSorts.Add(sortedList);
-			}
+                AddToIntermediateSorts(sortedList);
+            }
 
 			return sortedList;
 		}
