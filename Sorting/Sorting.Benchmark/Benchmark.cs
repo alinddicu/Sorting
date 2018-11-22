@@ -9,7 +9,7 @@
     {
 	    public void Execute()
 	    {
-			var unsortedList = new NoDoublesGenerator().Execute(100).ToArray();
+			var unsortedList = new UniqueElementsGenerator().Execute(100).ToArray();
             var bubble = new BubbleSort();
             bubble.Execute(unsortedList);
             var insertion = new InsertionSort();

@@ -14,7 +14,7 @@
         {
             var topLimit = 500;
             var expected = Enumerable.Range(1, topLimit).ToArray();
-            var testArray = new NoDoublesGenerator().Execute(topLimit);
+            var testArray = new UniqueElementsGenerator().Execute(topLimit);
             var algorithms = new List<SortBase>()
             {
                 new BubbleSort(),

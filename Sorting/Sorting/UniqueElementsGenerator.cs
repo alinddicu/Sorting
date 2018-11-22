@@ -4,7 +4,7 @@
 	using System.Collections.Generic;
 	using System.Linq;
 
-	public class NoDoublesGenerator
+	public class UniqueElementsGenerator
     {
 		public IEnumerable<int> Execute(int topLimit)
 		{
