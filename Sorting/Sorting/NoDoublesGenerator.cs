@@ -10,7 +10,6 @@
 		{
 			var rnd = new Random();
 			return Enumerable.Range(1, topLimit).OrderBy(x => rnd.Next());
-			//return Enumerable.Range(1, topLimit).Shuffled(new Random()).ToArray();
 		}
     }
 }
