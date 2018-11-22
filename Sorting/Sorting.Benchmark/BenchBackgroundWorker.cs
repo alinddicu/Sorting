@@ -26,14 +26,14 @@
 			{
 				Thread.Sleep(10);
 				var intermediateSort = intermediateSorts[i];
-				worker.ReportProgress(i, new BenchProgessChanged(intermediateSort));
+				worker.ReportProgress(i, new BenchPanelProgessChangedStateData(intermediateSort));
 			}
 		}
 
 		private void ProgressChangedHandler(object sender, ProgressChangedEventArgs e)
 		{
 			var graphics = _benchPanel.CreateGraphics();
-			var benchProgessChanged = (BenchProgessChanged)e.UserState;
+			var benchProgessChanged = (BenchPanelProgessChangedStateData)e.UserState;
 			graphics.Clear(_benchPanel.BackColor);
 			var numbers = benchProgessChanged.IntermediateSort.ToArray();
 			var pen = new Pen(Color.DarkGreen);

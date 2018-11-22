@@ -2,9 +2,9 @@ namespace Sort.Benchmark
 {
 	using System.Collections.Generic;
 
-	public class BenchProgessChanged
+	public class BenchPanelProgessChangedStateData
 	{
-		public BenchProgessChanged(ICollection<int> intermediateSort)
+		public BenchPanelProgessChangedStateData(ICollection<int> intermediateSort)
 		{
 			IntermediateSort = intermediateSort;
 		}
