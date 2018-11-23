@@ -3,8 +3,7 @@
     using System.Linq;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using NFluent;
-    using Sorting.Algorithms;
-    using System.Collections.Generic;
+    using System.Reflection;
 
     [TestClass]
     public class GlobalAlgorithmsTests
@@ -15,12 +14,7 @@
             var topLimit = 500;
             var expected = Enumerable.Range(1, topLimit).ToArray();
             var testArray = new UniqueElementsGenerator().Execute(topLimit);
-            var algorithms = new List<SortBase>()
-            {
-                new BubbleSort(),
-                new InsertionSort(),
-                new SelectionSort()
-            };
+            var algorithms = Assembly.GetAssembly(typeof(SortBase)).GetEnumerableOfType<SortBase>();
 
             var results = algorithms.Select(a => a.Execute(testArray));
 

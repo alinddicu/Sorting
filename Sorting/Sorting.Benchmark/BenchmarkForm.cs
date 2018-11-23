@@ -5,6 +5,10 @@
 
     using Sorting;
     using Sorting.Algorithms;
+    using System.Collections.Generic;
+    using System;
+    using System.Reflection;
+    using Sorting;
 
     public partial class BenchmarkForm : Form
     {
@@ -21,8 +25,7 @@
 
         private void InitBenchWorkers()
         {
-            var sorts = new SortBase [] { new BubbleSort(), new InsertionSort(), new SelectionSort() };
-
+            var sorts = Assembly.GetAssembly(typeof(SortBase)).GetEnumerableOfType<SortBase>();
             var basePanel = new FlowLayoutPanel
             {
                 Width = Width,
