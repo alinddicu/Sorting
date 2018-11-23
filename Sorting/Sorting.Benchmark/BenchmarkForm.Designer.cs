@@ -28,16 +28,16 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.SuspendLayout();
-            // 
-            // BenchmarkForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(553, 374);
-            this.Name = "BenchmarkForm";
-            this.Text = "Sorting algorithms benchmark";
-            this.ResumeLayout(false);
+			this.SuspendLayout();
+			// 
+			// BenchmarkForm
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.ClientSize = new System.Drawing.Size(553, 374);
+			this.Name = "BenchmarkForm";
+			this.Text = "Sorting algorithms benchmark";
+			this.ResumeLayout(false);
 
 		}
 

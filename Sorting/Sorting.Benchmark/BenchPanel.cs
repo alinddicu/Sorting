@@ -1,49 +1,74 @@
 ﻿namespace Sort.Benchmark
 {
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Windows.Forms;
+	using System.Collections.Generic;
+	using System.Drawing;
+	using System.Linq;
+	using System.Windows.Forms;
 
-    using Sorting;
-    using System.Drawing;
+	using Sorting;
 
-    public class BenchPanel : Panel
-    {
-        public BenchPanel(SortBase sortBase, IEnumerable<int> unsortedList)
-        {
-            Height = 200;
-            Width = 200;
-            BackColor = Color.Black;
+	public class BenchPanel : FlowLayoutPanel
+	{
+		private readonly Panel _drawingPanel;
+		private readonly Label _rankLabel;
+		private readonly int _maxSortValue;
+		private readonly Label _sortNameLabel;
 
-            var sortName = sortBase.GetType().Name;
-            var sortNameLabel = new Label()
-            {
-                Name = "SortNameLabel",
-                Text = sortName,
-                ForeColor = Color.Transparent,
-                Height = 12,
-                //Width = sortName.Length * 10
-            };
-            Controls.Add(sortNameLabel);
+		public BenchPanel(SortBase sortBase, IEnumerable<int> unsortedList, int maxSortValue)
+		{
+			var sortName = sortBase.GetType().Name;
+			_maxSortValue = maxSortValue;
+			BackColor = Color.Black;
+			ForeColor = Color.White;
+		
+			const int labelsWidth = 94;
+			var backColor = Color.Black;
+			var foreColor = Color.White;
+			_drawingPanel = new Panel { Height = 200, Width = 200, BackColor = backColor, ForeColor = foreColor };
+			_sortNameLabel = new Label { Text = sortName, BackColor = backColor, Height = 12, Width = labelsWidth, ForeColor = foreColor };
+			_rankLabel = new Label { BackColor = backColor, Height = 12, Width = labelsWidth, ForeColor = foreColor, TextAlign = ContentAlignment.MiddleRight };
+			Controls.AddRange(new Control[] { _sortNameLabel, _rankLabel, _drawingPanel });
+			Height = _drawingPanel.Height + _sortNameLabel.Height;
 
-            var controlLabel = new Label()
-            {
-                Name = "ControlLabel",
-                ForeColor = Color.Transparent,
-                Location = new Point(0, sortNameLabel.Height + 1),
-                Height = 12,
-                Width = 10
-            };
-            Controls.Add(controlLabel);
+			sortBase.Execute(unsortedList.ToArray());
+			IntermediateSorts = sortBase.IntermediateSorts;
+			SortName = sortName;
+		}
 
-            sortBase.Execute(unsortedList.ToArray());
-            IntermediateSorts = sortBase.IntermediateSorts;
-            SortName = sortBase.GetType().Name;
+		public List<ICollection<int>> IntermediateSorts { get; }
 
-        }
+		public string SortName { get; private set; }
 
-        public List<ICollection<int>> IntermediateSorts { get; private set; }
+		public void UpdateRankLabel(string text)
+		{
+			_rankLabel.Text = text;
+			_rankLabel.Refresh();
+		}
 
-        public string SortName { get; private set; }
-    }
+		public void DrawIntermediateSort(int intermediateSortIndex)
+		{
+			_sortNameLabel.Refresh();
+			_rankLabel.Refresh();
+			var graphics = _drawingPanel.CreateGraphics();
+			graphics.Clear(_drawingPanel.BackColor);
+			var numbers = IntermediateSorts[intermediateSortIndex].ToArray();
+			var pen = new Pen(Color.DarkGreen);
+			var height = _drawingPanel.Height;
+			var width = _drawingPanel.Width;
+
+			var heightFactor = (double)height / _maxSortValue;
+			var widthFactor = (double)width / _maxSortValue;
+
+			for (var i = 0; i < numbers.Length; i++)
+			{
+				var number = numbers[i];
+				graphics.DrawLine(
+					pen,
+					(int)widthFactor * i,
+					height,
+					(int)widthFactor * i,
+					(int)(height - number * heightFactor));
+			}
+		}
+	}
 }

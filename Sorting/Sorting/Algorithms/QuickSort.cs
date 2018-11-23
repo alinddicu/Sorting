@@ -4,16 +4,16 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    public class QuickSort : SortBase
+    public class QuickSort// : SortBase
     {
-        public override IEnumerable<int> Execute(IEnumerable<int> unsortedList)
-        {
-            var copy = Copy(unsortedList).ToArray();
+        //public override IEnumerable<int> Execute(IEnumerable<int> unsortedList)
+        //{
+        //    var copy = Copy(unsortedList).ToArray();
 
-            //Quicksort(copy, 0, copy.Length - 1);
+        //    //Quicksort(copy, 0, copy.Length - 1);
 
-            return copy;
-        }
+        //    return copy;
+        //}
 
         /*
         algorithm quicksort(A, lo, hi) is

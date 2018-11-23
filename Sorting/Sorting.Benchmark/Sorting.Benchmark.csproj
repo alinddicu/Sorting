@@ -58,7 +58,6 @@
     <Compile Include="BenchPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="BenchPanelProgessChangedStateData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

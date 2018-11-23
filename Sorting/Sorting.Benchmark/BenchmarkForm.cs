@@ -23,7 +23,7 @@
         private void InitForm()
         {
             Width = 445;
-            Height = 450;
+            Height = 480;
             CenterToScreen();
         }
 
@@ -41,9 +41,9 @@
 
             foreach (var sort in sorts)
             {
-                var bubblePanel = new BenchPanel(sort, unsortedList);
+                var bubblePanel = new BenchPanel(sort, unsortedList, _maxSortValue);
                 basePanel.Controls.Add(bubblePanel);
-                var bubbleBwWorker = new BenchBackgroundWorker(bubblePanel, _maxSortValue, _sortRanking);
+                var bubbleBwWorker = new BenchBackgroundWorker(bubblePanel, _sortRanking);
                 bubbleBwWorker.RunWorkerAsync();
             }
         }
