@@ -57,6 +57,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Algorithms\QuickSortTests.cs" />
     <Compile Include="Algorithms\BubbleSortTests.cs" />
     <Compile Include="Algorithms\InsertionSortTests.cs" />
     <Compile Include="Algorithms\SelectionSortTests.cs" />
