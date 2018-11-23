@@ -21,20 +21,22 @@
 
 		public BenchPanel(SortBase sortBase, IEnumerable<int> unsortedList, int maxSortValue)
 		{
+			sortBase.Execute(unsortedList.ToArray());
+			IntermediateSorts = sortBase.IntermediateSorts;
+			var iterations = IntermediateSorts.Count;
 			var sortName = sortBase.GetType().Name;
 			_maxSortValue = maxSortValue;
 			BackColor = BackColorConst;
 			ForeColor = ForeColorConst;
-		
-			const int labelsWidth = 94;
+
 			_drawingPanel = new Panel { Height = 200, Width = 200, BackColor = BackColorConst, ForeColor = ForeColorConst };
-			_sortNameLabel = new Label { Text = sortName, BackColor = BackColorConst, Height = 12, Width = labelsWidth, ForeColor = ForeColorConst };
-			_rankLabel = new Label { BackColor = BackColorConst, Height = 12, Width = labelsWidth, ForeColor = ForeColorConst, TextAlign = ContentAlignment.MiddleRight };
+			var sortNameText = $"{sortName} - {iterations} iterations";
+			var sortNameWidth = sortNameText.Length * 7;
+			_sortNameLabel = new Label { Text = sortNameText, BackColor = BackColorConst, Height = 12, Width = sortNameWidth, ForeColor = ForeColorConst };
+			_rankLabel = new Label { BackColor = BackColorConst, Height = 12, ForeColor = ForeColorConst, TextAlign = ContentAlignment.MiddleRight };
 			Controls.AddRange(new Control[] { _sortNameLabel, _rankLabel, _drawingPanel });
 			Height = _drawingPanel.Height + _sortNameLabel.Height;
 
-			sortBase.Execute(unsortedList.ToArray());
-			IntermediateSorts = sortBase.IntermediateSorts;
 			SortName = sortName;
 			_graphics = _drawingPanel.CreateGraphics();
 			_drawingPanel.Paint += BenchPanel_Paint;
@@ -86,7 +88,7 @@
 
 		private void RefreshLabels()
 		{
-// fix bug: colors don't apply to labels when initializing
+			// fix bug: colors don't apply to labels when initializing
 			_sortNameLabel.Refresh();
 			_rankLabel.Refresh();
 		}

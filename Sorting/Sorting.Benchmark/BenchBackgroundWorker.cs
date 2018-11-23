@@ -59,7 +59,7 @@
             var worker = sender as BackgroundWorker;
             for (var i = 0; i < _benchPanel.IntermediateSorts.Count; i++)
             {
-                Thread.Sleep(30);
+                Thread.Sleep(50);
                 worker.ReportProgress(i);
             }
         }
