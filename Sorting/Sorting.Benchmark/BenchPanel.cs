@@ -14,6 +14,12 @@
 			Height = 200;
 			Width = 200;
             BackColor = Color.Black;
+            var label = new Label()
+            {
+                Text = sortBase.GetType().Name,
+                ForeColor = Color.Transparent
+            };
+            Controls.Add(label);
             sortBase.Execute(unsortedList.ToArray());
 			IntermediateSorts = sortBase.IntermediateSorts;
 		}
