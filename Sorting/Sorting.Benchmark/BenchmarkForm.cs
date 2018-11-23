@@ -12,33 +12,26 @@
 		public BenchmarkForm()
 		{
 			InitializeComponent();
+            var basePanel = new FlowLayoutPanel
+            {
+                Dock = DockStyle.Fill
+            };
+            Controls.Add(basePanel);
 
-			var unsortedList = new UniqueElementsGenerator().Execute(100).ToArray();
+            var unsortedList = new UniqueElementsGenerator().Execute(100).ToArray();
 
-			var bubblePanel = new BenchPanel(new BubbleSort(), unsortedList)
-			{
-				BackColor = Color.Black,
-				Location = new Point(0, 0)
-			};
-			Controls.Add(bubblePanel);
-			var bubbleBwWorker = new BenchBackgroundWorker(bubblePanel);
+			var bubblePanel = new BenchPanel(new BubbleSort(), unsortedList);
+            basePanel.Controls.Add(bubblePanel);
+            var bubbleBwWorker = new BenchBackgroundWorker(bubblePanel);
 			bubbleBwWorker.RunWorkerAsync();
 
-			var insertionPanel = new BenchPanel(new InsertionSort(), unsortedList)
-			{
-				BackColor = Color.Black,
-				Location = new Point(101, 0)
-			};
-			Controls.Add(insertionPanel);
+			var insertionPanel = new BenchPanel(new InsertionSort(), unsortedList);
+            basePanel.Controls.Add(insertionPanel);
 			var insertionBwWorker = new BenchBackgroundWorker(insertionPanel);
 			insertionBwWorker.RunWorkerAsync();
 
-			var selectionPanel = new BenchPanel(new InsertionSort(), unsortedList)
-			{
-				BackColor = Color.Black,
-				Location = new Point(202, 0)
-			};
-			Controls.Add(selectionPanel);
+			var selectionPanel = new BenchPanel(new InsertionSort(), unsortedList);
+            basePanel.Controls.Add(selectionPanel);
 			var selectionBwWorker = new BenchBackgroundWorker(selectionPanel);
 			selectionBwWorker.RunWorkerAsync();
 		}

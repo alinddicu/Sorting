@@ -5,6 +5,7 @@
     using System.Windows.Forms;
 
     using Sorting;
+    using System.Drawing;
 
     public class BenchPanel: Panel
 	{
@@ -12,7 +13,8 @@
 		{
 			Height = 100;
 			Width = 100;
-			sortBase.Execute(unsortedList.ToArray());
+            BackColor = Color.Black;
+            sortBase.Execute(unsortedList.ToArray());
 			IntermediateSorts = sortBase.IntermediateSorts;
 		}
 
