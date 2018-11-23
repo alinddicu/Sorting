@@ -8,7 +8,6 @@
     using System.Collections.Generic;
     using System;
     using System.Reflection;
-    using Sorting;
 
     public partial class BenchmarkForm : Form
     {
@@ -16,11 +15,17 @@
 
         public BenchmarkForm(int maxSortValue)
         {
-            InitializeComponent();
-            Width = 650;
-            Height = 650;
             _maxSortValue = maxSortValue;
+            InitializeComponent();
+            InitForm();
             InitBenchWorkers();
+        }
+
+        private void InitForm()
+        {
+            Width = 445;
+            Height = 450;
+            CenterToScreen();
         }
 
         private void InitBenchWorkers()
