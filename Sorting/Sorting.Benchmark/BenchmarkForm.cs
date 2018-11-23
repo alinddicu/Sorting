@@ -29,7 +29,6 @@
 
         private void InitBenchWorkers()
         {
-            var sorts = Assembly.GetAssembly(typeof(SortBase)).GetEnumerableOfType<SortBase>();
             var basePanel = new FlowLayoutPanel
             {
                 Width = Width,
@@ -38,13 +37,15 @@
             };
             Controls.Add(basePanel);
             var unsortedList = new UniqueElementsGenerator().Execute(_maxSortValue).ToArray();
-
-            foreach (var sort in sorts)
+			
+			var benchPanels = Assembly.GetAssembly(typeof(SortBase))
+				.GetHeirsOf<SortBase>()
+				.Select(sort => new BenchPanel(sort, unsortedList, _maxSortValue));
+			foreach (var benchPanel in benchPanels)
             {
-                var bubblePanel = new BenchPanel(sort, unsortedList, _maxSortValue);
-                basePanel.Controls.Add(bubblePanel);
-                var bubbleBwWorker = new BenchBackgroundWorker(bubblePanel, _sortRanking);
-                bubbleBwWorker.RunWorkerAsync();
+	            basePanel.Controls.Add(benchPanel);
+	            var bubbleBwWorker = new BenchBackgroundWorker(benchPanel, _sortRanking);
+	            bubbleBwWorker.RunWorkerAsync();
             }
         }
     }

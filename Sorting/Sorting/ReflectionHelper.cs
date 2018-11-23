@@ -7,7 +7,7 @@
 
     public static class ReflectionHelper
     {
-        public static IEnumerable<T> GetEnumerableOfType<T>(this Assembly a, params object[] constructorArgs)
+        public static IEnumerable<T> GetHeirsOf<T>(this Assembly a, params object[] constructorArgs)
             where T : class
         {
             var objects = new List<T>();
