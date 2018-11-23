@@ -47,8 +47,10 @@
 
 		public void DrawIntermediateSort(int intermediateSortIndex)
 		{
+			// fix bug: colors don't apply to labels
 			_sortNameLabel.Refresh();
 			_rankLabel.Refresh();
+
 			var graphics = _drawingPanel.CreateGraphics();
 			graphics.Clear(_drawingPanel.BackColor);
 			var numbers = IntermediateSorts[intermediateSortIndex].ToArray();
