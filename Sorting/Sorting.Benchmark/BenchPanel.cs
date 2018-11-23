@@ -15,7 +15,6 @@
 
 		private readonly Graphics _graphics;
 		private readonly Panel _drawingPanel;
-		private readonly Label _rankLabel;
 		private readonly int _maxSortValue;
 		private readonly Label _sortNameLabel;
 
@@ -33,8 +32,7 @@
 			var sortNameText = $"{sortName} - {iterations} iterations";
 			var sortNameWidth = sortNameText.Length * 7;
 			_sortNameLabel = new Label { Text = sortNameText, BackColor = BackColorConst, Height = 12, Width = sortNameWidth, ForeColor = ForeColorConst };
-			_rankLabel = new Label { BackColor = BackColorConst, Height = 12, ForeColor = ForeColorConst, TextAlign = ContentAlignment.MiddleRight };
-			Controls.AddRange(new Control[] { _sortNameLabel, _rankLabel, _drawingPanel });
+			Controls.AddRange(new Control[] { _sortNameLabel, _drawingPanel });
 			Height = _drawingPanel.Height + _sortNameLabel.Height;
 
 			SortName = sortName;
@@ -50,12 +48,6 @@
 		public List<ICollection<int>> IntermediateSorts { get; }
 
 		public string SortName { get; private set; }
-
-		public void UpdateRank(string text)
-		{
-			_rankLabel.Text = text;
-			_rankLabel.Refresh();
-		}
 
 		private void DrawIntermediateSort(Graphics graphics, int intermediateSortIndex)
 		{
@@ -90,7 +82,6 @@
 		{
 			// fix bug: colors don't apply to labels when initializing
 			_sortNameLabel.Refresh();
-			_rankLabel.Refresh();
 		}
 	}
 }

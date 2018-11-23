@@ -5,11 +5,9 @@
 
 	using Sorting;
 	using System.Reflection;
-	using System.Collections.Generic;
 
 	public partial class BenchmarkForm : Form
 	{
-		private readonly List<string> _sortRanking = new List<string>();
 		private readonly int _maxSortValue;
 
 		public BenchmarkForm(int maxSortValue)
@@ -38,7 +36,7 @@
 			foreach (var benchPanel in benchPanels)
 			{
 				basePanel.Controls.Add(benchPanel);
-				var bubbleBwWorker = new BenchBackgroundWorker(benchPanel, _sortRanking);
+				var bubbleBwWorker = new BenchBackgroundWorker(benchPanel);
 				bubbleBwWorker.RunWorkerAsync();
 			}
 
