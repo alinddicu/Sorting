@@ -37,6 +37,12 @@
 			IntermediateSorts = sortBase.IntermediateSorts;
 			SortName = sortName;
 			_graphics = _drawingPanel.CreateGraphics();
+			_drawingPanel.Paint += BenchPanel_Paint;
+		}
+
+		private void BenchPanel_Paint(object sender, PaintEventArgs e)
+		{
+			DrawIntermediateSort(e.Graphics, IntermediateSorts.Count - 1);
 		}
 
 		public List<ICollection<int>> IntermediateSorts { get; }
@@ -49,11 +55,11 @@
 			_rankLabel.Refresh();
 		}
 
-		public void DrawIntermediateSort(int intermediateSortIndex)
+		private void DrawIntermediateSort(Graphics graphics, int intermediateSortIndex)
 		{
 			RefreshLabels();
 
-			_graphics.Clear(_drawingPanel.BackColor);
+			graphics.Clear(_drawingPanel.BackColor);
 			var height = _drawingPanel.Height;
 			var width = _drawingPanel.Width;
 
@@ -64,13 +70,18 @@
 			for (var i = 0; i < numbers.Length; i++)
 			{
 				var number = numbers[i];
-				_graphics.DrawLine(
+				graphics.DrawLine(
 					Pen,
 					(int)widthFactor * i,
 					height,
 					(int)widthFactor * i,
 					(int)(height - number * heightFactor));
 			}
+		}
+
+		public void DrawIntermediateSort(int intermediateSortIndex)
+		{
+			DrawIntermediateSort(_graphics, intermediateSortIndex);
 		}
 
 		private void RefreshLabels()
