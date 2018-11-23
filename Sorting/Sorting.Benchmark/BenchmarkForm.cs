@@ -4,13 +4,12 @@
     using System.Windows.Forms;
 
     using Sorting;
-    using Sorting.Algorithms;
-    using System.Collections.Generic;
-    using System;
     using System.Reflection;
+    using System.Collections.Generic;
 
     public partial class BenchmarkForm : Form
     {
+        private readonly List<string> _sortRanking = new List<string>();
         private readonly int _maxSortValue;
 
         public BenchmarkForm(int maxSortValue)
@@ -44,7 +43,7 @@
             {
                 var bubblePanel = new BenchPanel(sort, unsortedList);
                 basePanel.Controls.Add(bubblePanel);
-                var bubbleBwWorker = new BenchBackgroundWorker(bubblePanel, _maxSortValue);
+                var bubbleBwWorker = new BenchBackgroundWorker(bubblePanel, _maxSortValue, _sortRanking);
                 bubbleBwWorker.RunWorkerAsync();
             }
         }
