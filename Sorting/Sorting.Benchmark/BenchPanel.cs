@@ -11,8 +11,8 @@
 	{
 		public BenchPanel(SortBase sortBase, IEnumerable<int> unsortedList)
 		{
-			Height = 100;
-			Width = 100;
+			Height = 200;
+			Width = 200;
             BackColor = Color.Black;
             sortBase.Execute(unsortedList.ToArray());
 			IntermediateSorts = sortBase.IntermediateSorts;

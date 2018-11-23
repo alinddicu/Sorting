@@ -8,9 +8,14 @@
 
     public partial class BenchmarkForm : Form
     {
-        public BenchmarkForm()
+        private readonly int _maxSortValue;
+
+        public BenchmarkForm(int maxSortValue)
         {
             InitializeComponent();
+            Width = 650;
+            Height = 650;
+            _maxSortValue = maxSortValue;
             InitBenchWorkers();
         }
 
@@ -18,15 +23,20 @@
         {
             var sorts = new SortBase [] { new BubbleSort(), new InsertionSort(), new SelectionSort() };
 
-            var basePanel = new FlowLayoutPanel { Dock = DockStyle.Fill };
+            var basePanel = new FlowLayoutPanel
+            {
+                Width = Width,
+                Height = Height,
+                Dock = DockStyle.Fill
+            };
             Controls.Add(basePanel);
-            var unsortedList = new UniqueElementsGenerator().Execute(100).ToArray();
+            var unsortedList = new UniqueElementsGenerator().Execute(_maxSortValue).ToArray();
 
             foreach (var sort in sorts)
             {
                 var bubblePanel = new BenchPanel(sort, unsortedList);
                 basePanel.Controls.Add(bubblePanel);
-                var bubbleBwWorker = new BenchBackgroundWorker(bubblePanel);
+                var bubbleBwWorker = new BenchBackgroundWorker(bubblePanel, _maxSortValue);
                 bubbleBwWorker.RunWorkerAsync();
             }
         }
