@@ -1,13 +1,12 @@
 ﻿namespace Sort.Benchmark
 {
-	using System.Collections.Generic;
-	using System.Drawing;
-	using System.Linq;
-	using System.Threading;
-	using System.Windows.Forms;
-	using Sorting;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Windows.Forms;
 
-	public class BenchPanel: Panel
+    using Sorting;
+
+    public class BenchPanel: Panel
 	{
 		public BenchPanel(SortBase sortBase, IEnumerable<int> unsortedList)
 		{
