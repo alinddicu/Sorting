@@ -22,8 +22,8 @@
 
 		private void InitForm()
 		{
-			Width = 445;
-			Height = 480;
+			Width = 429;
+			Height = 475;
 			CenterToScreen();
 		}
 

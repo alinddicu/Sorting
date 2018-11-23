@@ -5,7 +5,7 @@
 
 	public static class Program
 	{
-        private static readonly int MaxSortValue = 100;
+        private static readonly int MaxSortValue = 200;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

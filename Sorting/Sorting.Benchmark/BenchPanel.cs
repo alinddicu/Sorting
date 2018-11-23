@@ -11,7 +11,9 @@
 	{
 		private static readonly Color BackColorConst = Color.Black;
 		private static readonly Color ForeColorConst = Color.White;
+		private static readonly Pen Pen = new Pen(Color.DarkGreen);
 
+		private readonly Graphics _graphics;
 		private readonly Panel _drawingPanel;
 		private readonly Label _rankLabel;
 		private readonly int _maxSortValue;
@@ -34,13 +36,14 @@
 			sortBase.Execute(unsortedList.ToArray());
 			IntermediateSorts = sortBase.IntermediateSorts;
 			SortName = sortName;
+			_graphics = _drawingPanel.CreateGraphics();
 		}
 
 		public List<ICollection<int>> IntermediateSorts { get; }
 
 		public string SortName { get; private set; }
 
-		public void UpdateRankLabel(string text)
+		public void UpdateRank(string text)
 		{
 			_rankLabel.Text = text;
 			_rankLabel.Refresh();
@@ -48,30 +51,33 @@
 
 		public void DrawIntermediateSort(int intermediateSortIndex)
 		{
-			// fix bug: colors don't apply to labels
-			_sortNameLabel.Refresh();
-			_rankLabel.Refresh();
+			RefreshLabels();
 
-			var graphics = _drawingPanel.CreateGraphics();
-			graphics.Clear(_drawingPanel.BackColor);
-			var numbers = IntermediateSorts[intermediateSortIndex].ToArray();
-			var pen = new Pen(Color.DarkGreen);
+			_graphics.Clear(_drawingPanel.BackColor);
 			var height = _drawingPanel.Height;
 			var width = _drawingPanel.Width;
 
 			var heightFactor = (double)height / _maxSortValue;
 			var widthFactor = (double)width / _maxSortValue;
 
+			var numbers = IntermediateSorts[intermediateSortIndex].ToArray();
 			for (var i = 0; i < numbers.Length; i++)
 			{
 				var number = numbers[i];
-				graphics.DrawLine(
-					pen,
+				_graphics.DrawLine(
+					Pen,
 					(int)widthFactor * i,
 					height,
 					(int)widthFactor * i,
 					(int)(height - number * heightFactor));
 			}
+		}
+
+		private void RefreshLabels()
+		{
+// fix bug: colors don't apply to labels when initializing
+			_sortNameLabel.Refresh();
+			_rankLabel.Refresh();
 		}
 	}
 }

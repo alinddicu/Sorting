@@ -36,7 +36,7 @@
 				rankLabelText = $"Rank {GetRank()}";
             }
 
-            _benchPanel.UpdateRankLabel(rankLabelText);
+            _benchPanel.UpdateRank(rankLabelText);
         }
 
         private int GetRank()
@@ -59,7 +59,7 @@
             var worker = sender as BackgroundWorker;
             for (var i = 0; i < _benchPanel.IntermediateSorts.Count; i++)
             {
-                Thread.Sleep(10);
+                Thread.Sleep(30);
                 worker.ReportProgress(i);
             }
         }
