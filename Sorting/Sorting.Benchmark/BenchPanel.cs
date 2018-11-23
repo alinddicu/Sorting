@@ -9,6 +9,9 @@
 
 	public class BenchPanel : FlowLayoutPanel
 	{
+		private static readonly Color BackColorConst = Color.Black;
+		private static readonly Color ForeColorConst = Color.White;
+
 		private readonly Panel _drawingPanel;
 		private readonly Label _rankLabel;
 		private readonly int _maxSortValue;
@@ -18,15 +21,13 @@
 		{
 			var sortName = sortBase.GetType().Name;
 			_maxSortValue = maxSortValue;
-			BackColor = Color.Black;
-			ForeColor = Color.White;
+			BackColor = BackColorConst;
+			ForeColor = ForeColorConst;
 		
 			const int labelsWidth = 94;
-			var backColor = Color.Black;
-			var foreColor = Color.White;
-			_drawingPanel = new Panel { Height = 200, Width = 200, BackColor = backColor, ForeColor = foreColor };
-			_sortNameLabel = new Label { Text = sortName, BackColor = backColor, Height = 12, Width = labelsWidth, ForeColor = foreColor };
-			_rankLabel = new Label { BackColor = backColor, Height = 12, Width = labelsWidth, ForeColor = foreColor, TextAlign = ContentAlignment.MiddleRight };
+			_drawingPanel = new Panel { Height = 200, Width = 200, BackColor = BackColorConst, ForeColor = ForeColorConst };
+			_sortNameLabel = new Label { Text = sortName, BackColor = BackColorConst, Height = 12, Width = labelsWidth, ForeColor = ForeColorConst };
+			_rankLabel = new Label { BackColor = BackColorConst, Height = 12, Width = labelsWidth, ForeColor = ForeColorConst, TextAlign = ContentAlignment.MiddleRight };
 			Controls.AddRange(new Control[] { _sortNameLabel, _rankLabel, _drawingPanel });
 			Height = _drawingPanel.Height + _sortNameLabel.Height;
 
