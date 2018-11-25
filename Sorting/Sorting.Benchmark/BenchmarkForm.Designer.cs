@@ -32,13 +32,16 @@
 			this.toolStripMenuItemBench = new System.Windows.Forms.ToolStripMenuItem();
 			this.startToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.stopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.shuffleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStripBench.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// menuStripBench
 			// 
 			this.menuStripBench.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItemBench});
+            this.toolStripMenuItemBench,
+            this.optionsToolStripMenuItem});
 			this.menuStripBench.Location = new System.Drawing.Point(0, 0);
 			this.menuStripBench.Name = "menuStripBench";
 			this.menuStripBench.Size = new System.Drawing.Size(553, 24);
@@ -49,7 +52,8 @@
 			// 
 			this.toolStripMenuItemBench.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.startToolStripMenuItem,
-            this.stopToolStripMenuItem});
+            this.stopToolStripMenuItem,
+            this.shuffleToolStripMenuItem});
 			this.toolStripMenuItemBench.Name = "toolStripMenuItemBench";
 			this.toolStripMenuItemBench.Size = new System.Drawing.Size(52, 20);
 			this.toolStripMenuItemBench.Text = "Bench";
@@ -66,7 +70,14 @@
 			this.stopToolStripMenuItem.Name = "stopToolStripMenuItem";
 			this.stopToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.stopToolStripMenuItem.Text = "Stop";
-			this.stopToolStripMenuItem.Click += new System.EventHandler(this.cancelToolStripMenuItem_Click);
+			this.stopToolStripMenuItem.Click += new System.EventHandler(this.stopToolStripMenuItem_Click);
+			// 
+			// shuffleToolStripMenuItem
+			// 
+			this.shuffleToolStripMenuItem.Name = "shuffleToolStripMenuItem";
+			this.shuffleToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.shuffleToolStripMenuItem.Text = "Shuffle";
+			this.shuffleToolStripMenuItem.Click += new System.EventHandler(this.shuffleToolStripMenuItem_Click);
 			// 
 			// BenchmarkForm
 			// 
@@ -90,5 +101,7 @@
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemBench;
 		private System.Windows.Forms.ToolStripMenuItem startToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem stopToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem shuffleToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
 	}
 }

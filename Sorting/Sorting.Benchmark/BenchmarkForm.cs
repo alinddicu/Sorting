@@ -15,7 +15,7 @@
 		private readonly List<BenchBackgroundWorker> _benchBackgroundWorkers = new List<BenchBackgroundWorker>();
 		private readonly UniqueElementsGenerator _generator = new UniqueElementsGenerator();
 
-		private readonly IEnumerable<int> _unsortedList;
+		private IEnumerable<int> _unsortedList;
 
 		public BenchmarkForm(int maxSortValue)
 		{
@@ -31,9 +31,14 @@
 			};
 			Controls.Add(_basePanel);
 
-			_unsortedList = _generator.Execute(_maxSortValue).ToArray();
+			Shuffle();
 			InitBenchWorkers();
-			EnableButtons(true, false);
+			EnableButtons(true, false, true);
+		}
+
+		private void Shuffle()
+		{
+			_unsortedList = _generator.Execute(_maxSortValue).ToArray();
 		}
 
 		private void InitForm()
@@ -65,23 +70,34 @@
 				benchBwWorker.RunWorkerAsync();
 			}
 
-			EnableButtons(false, true);
+			EnableButtons(false, true, false);
 		}
 
-		private void cancelToolStripMenuItem_Click(object sender, System.EventArgs e)
+		private void stopToolStripMenuItem_Click(object sender, System.EventArgs e)
 		{
 			foreach (var benchBackgroundWorker in _benchBackgroundWorkers)
 			{
 				benchBackgroundWorker.CancelAsync();
 			}
 
-			EnableButtons(true, false);
+			EnableButtons(true, false, true);
 		}
 
-		private void EnableButtons(bool startEnabled, bool stopEnabled)
+		private void EnableButtons(bool startEnabled, bool stopEnabled, bool shuffleEnabled)
 		{
 			startToolStripMenuItem.Enabled = startEnabled;
 			stopToolStripMenuItem.Enabled = stopEnabled;
+			shuffleToolStripMenuItem.Enabled = shuffleEnabled;
+		}
+
+		private void shuffleToolStripMenuItem_Click(object sender, System.EventArgs e)
+		{
+			Shuffle();
+			foreach (var benchBwWorker in _benchBackgroundWorkers)
+			{
+				benchBwWorker.BenchPanel.Init(_unsortedList);
+				benchBwWorker.BenchPanel.DrawIntermediateSort(0);
+			}
 		}
 	}
 }
