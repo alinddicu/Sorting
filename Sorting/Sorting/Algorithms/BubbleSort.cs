@@ -5,9 +5,10 @@
 
 	public class BubbleSort: SortBase
 	{
-		public override IEnumerable<int> Execute(IEnumerable<int> input)
+		public override IEnumerable<int> Execute(ICollection<int> unsortedList)
 		{
-			var sortedList = Copy(input).ToArray();
+			base.Execute(unsortedList);
+			var sortedList = Copy(unsortedList).ToArray();
 			AddToIntermediateSorts(sortedList);
 			bool inversion;
 

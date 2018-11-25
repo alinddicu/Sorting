@@ -13,6 +13,9 @@
 		private readonly int _maxSortValue;
 		private readonly FlowLayoutPanel _basePanel;
 		private readonly List<BenchBackgroundWorker> _benchBackgroundWorkers = new List<BenchBackgroundWorker>();
+		private readonly UniqueElementsGenerator _generator = new UniqueElementsGenerator();
+
+		private readonly IEnumerable<int> _unsortedList;
 
 		public BenchmarkForm(int maxSortValue)
 		{
@@ -28,6 +31,7 @@
 			};
 			Controls.Add(_basePanel);
 
+			_unsortedList = _generator.Execute(_maxSortValue).ToArray();
 			InitBenchWorkers();
 			EnableButtons(true, false);
 		}
@@ -41,11 +45,10 @@
 
 		private void InitBenchWorkers()
 		{
-			var unsortedList = new UniqueElementsGenerator().Execute(_maxSortValue).ToArray();
 			var benchPanels = Assembly.GetAssembly(typeof(SortBase))
 				.GetHeirsOf<SortBase>()
-				.Select(sort => new BenchPanel(sort, unsortedList, _maxSortValue));
-			//var benchPanels = new [] {new BenchPanel(new InsertionSort(), unsortedList, _maxSortValue) };
+				.Select(sort => new BenchPanel(sort, _unsortedList, _maxSortValue));
+			//var benchPanels = new [] {new BenchPanel(new InsertionSort(), _unsortedList, _maxSortValue) };
 			foreach (var benchPanel in benchPanels)
 			{
 				_basePanel.Controls.Add(benchPanel);
@@ -58,6 +61,7 @@
 		{
 			foreach (var benchBwWorker in _benchBackgroundWorkers)
 			{
+				benchBwWorker.BenchPanel.Init(_unsortedList);
 				benchBwWorker.RunWorkerAsync();
 			}
 

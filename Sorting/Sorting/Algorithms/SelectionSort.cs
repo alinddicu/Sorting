@@ -5,8 +5,9 @@
 
 	public class SelectionSort: SortBase
 	{
-		public override IEnumerable<int> Execute(IEnumerable<int> unsortedList)
+		public override IEnumerable<int> Execute(ICollection<int> unsortedList)
 		{
+			base.Execute(unsortedList);
 			var sortedList = Copy(unsortedList).ToList();
 			AddToIntermediateSorts(unsortedList);
 

@@ -4,8 +4,9 @@
 
 	public class InsertionSort : SortBase
 	{
-		public override IEnumerable<int> Execute(IEnumerable<int> unsortedList)
+		public override IEnumerable<int> Execute(ICollection<int> unsortedList)
 		{
+			base.Execute(unsortedList);
 			AddToIntermediateSorts(unsortedList);
 			var sortedList = new List<int>();
 

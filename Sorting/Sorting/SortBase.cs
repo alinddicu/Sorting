@@ -6,9 +6,13 @@
 
 	public abstract class SortBase
 	{
-		public List<ICollection<int>> IntermediateSorts { get; private set; } = new List<ICollection<int>>();
+		public List<ICollection<int>> IntermediateSorts { get; } = new List<ICollection<int>>();
 
-		public abstract IEnumerable<int> Execute(IEnumerable<int> unsortedList);
+		public virtual IEnumerable<int> Execute(ICollection<int> unsortedList)
+		{
+			IntermediateSorts.Clear();
+			return unsortedList;
+		}
 
 		protected IEnumerable<int> Copy(IEnumerable<int> input)
 		{

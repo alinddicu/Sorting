@@ -8,8 +8,9 @@
 		private int[] _copy;
 
 		// https://www.geeksforgeeks.org/quick-sort/
-		public override IEnumerable<int> Execute(IEnumerable<int> unsortedList)
+		public override IEnumerable<int> Execute(ICollection<int> unsortedList)
 		{
+			base.Execute(unsortedList);
 			_copy = Copy(unsortedList).ToArray();
 			AddToIntermediateSorts(_copy);
 

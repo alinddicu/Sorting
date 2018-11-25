@@ -15,29 +15,38 @@
 
 		private readonly Graphics _graphics;
 		private readonly Panel _drawingPanel;
+		private readonly SortBase _sortBase;
 		private readonly int _maxSortValue;
 		private readonly Label _sortNameLabel;
 		private int _lastIntermediateSortIndex;
 
 		public BenchPanel(SortBase sortBase, IEnumerable<int> unsortedList, int maxSortValue)
 		{
-			sortBase.Execute(unsortedList.ToArray());
-			IntermediateSorts = sortBase.IntermediateSorts;
-			var iterations = IntermediateSorts.Count - 1;
+			_sortBase = sortBase;
 			_maxSortValue = maxSortValue;
 			BackColor = BackColorConst;
 			ForeColor = ForeColorConst;
 
 			_drawingPanel = new Panel { Height = 200, Width = 200, BackColor = BackColorConst, ForeColor = ForeColorConst };
-			var sortName = sortBase.GetType().Name;
-			var sortNameText = $"{sortName} - {iterations} iterations";
-			var sortNameWidth = sortNameText.Length * 7;
-			_sortNameLabel = new Label { Text = sortNameText, BackColor = BackColorConst, Height = 12, Width = sortNameWidth, ForeColor = ForeColorConst };
+			_sortNameLabel = new Label { BackColor = BackColorConst, Height = 12, ForeColor = ForeColorConst };
 			Controls.AddRange(new Control[] { _sortNameLabel, _drawingPanel });
 			Height = _drawingPanel.Height + _sortNameLabel.Height;
-			
+			Init(unsortedList);
+
 			_graphics = _drawingPanel.CreateGraphics();
 			_drawingPanel.Paint += BenchPanel_Paint;
+		}
+
+		public void Init(IEnumerable<int> unsortedList)
+		{
+			_sortBase.Execute(unsortedList.ToArray());
+			IntermediateSorts = _sortBase.IntermediateSorts;
+			var iterations = IntermediateSorts.Count - 1;
+			var sortName = _sortBase.GetType().Name;
+			var sortNameText = $"{sortName} - {iterations} iterations";
+			var sortNameWidth = sortNameText.Length * 7;
+			_sortNameLabel.Text = sortNameText;
+			_sortNameLabel.Width = sortNameWidth;
 		}
 
 		private void BenchPanel_Paint(object sender, PaintEventArgs e)
@@ -45,7 +54,7 @@
 			DrawIntermediateSort(e.Graphics, _lastIntermediateSortIndex);
 		}
 
-		public List<ICollection<int>> IntermediateSorts { get; }
+		public List<ICollection<int>> IntermediateSorts { get; private set; }
 
 		private void DrawIntermediateSort(Graphics graphics, int intermediateSortIndex)
 		{
