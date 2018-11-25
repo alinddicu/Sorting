@@ -6,6 +6,7 @@
 
 	using Sorting;
 	using System.Reflection;
+	using Sorting.Algorithms;
 
 	public partial class BenchmarkForm : Form
 	{
@@ -43,6 +44,7 @@
 			var benchPanels = Assembly.GetAssembly(typeof(SortBase))
 				.GetHeirsOf<SortBase>()
 				.Select(sort => new BenchPanel(sort, unsortedList, _maxSortValue));
+			//var benchPanels = new [] {new BenchPanel(new InsertionSort(), unsortedList, _maxSortValue) };
 			foreach (var benchPanel in benchPanels)
 			{
 				_basePanel.Controls.Add(benchPanel);
@@ -55,10 +57,7 @@
 		{
 			foreach (var benchBwWorker in _benchBackgroundWorkers)
 			{
-				//if (!benchBwWorker.IsBusy)
-				//{
 				benchBwWorker.RunWorkerAsync();
-				//}
 			}
 		}
 
