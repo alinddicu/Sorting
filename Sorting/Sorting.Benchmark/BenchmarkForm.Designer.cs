@@ -31,7 +31,7 @@
 			this.menuStripBench = new System.Windows.Forms.MenuStrip();
 			this.toolStripMenuItemBench = new System.Windows.Forms.ToolStripMenuItem();
 			this.startToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.cancelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.stopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStripBench.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -49,7 +49,7 @@
 			// 
 			this.toolStripMenuItemBench.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.startToolStripMenuItem,
-            this.cancelToolStripMenuItem});
+            this.stopToolStripMenuItem});
 			this.toolStripMenuItemBench.Name = "toolStripMenuItemBench";
 			this.toolStripMenuItemBench.Size = new System.Drawing.Size(52, 20);
 			this.toolStripMenuItemBench.Text = "Bench";
@@ -61,12 +61,12 @@
 			this.startToolStripMenuItem.Text = "Start";
 			this.startToolStripMenuItem.Click += new System.EventHandler(this.startToolStripMenuItem_Click);
 			// 
-			// cancelToolStripMenuItem
+			// stopToolStripMenuItem
 			// 
-			this.cancelToolStripMenuItem.Name = "cancelToolStripMenuItem";
-			this.cancelToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-			this.cancelToolStripMenuItem.Text = "Cancel";
-			this.cancelToolStripMenuItem.Click += new System.EventHandler(this.cancelToolStripMenuItem_Click);
+			this.stopToolStripMenuItem.Name = "stopToolStripMenuItem";
+			this.stopToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.stopToolStripMenuItem.Text = "Stop";
+			this.stopToolStripMenuItem.Click += new System.EventHandler(this.cancelToolStripMenuItem_Click);
 			// 
 			// BenchmarkForm
 			// 
@@ -89,6 +89,6 @@
 		private System.Windows.Forms.MenuStrip menuStripBench;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemBench;
 		private System.Windows.Forms.ToolStripMenuItem startToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem cancelToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem stopToolStripMenuItem;
 	}
 }

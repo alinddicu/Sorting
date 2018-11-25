@@ -78,10 +78,10 @@
 			EnableButtons(true, false);
 		}
 
-		private void EnableButtons(bool startEnabled, bool cancelEnabled)
+		private void EnableButtons(bool startEnabled, bool stopEnabled)
 		{
 			startToolStripMenuItem.Enabled = startEnabled;
-			cancelToolStripMenuItem.Enabled = cancelEnabled;
+			stopToolStripMenuItem.Enabled = stopEnabled;
 		}
 	}
 }
