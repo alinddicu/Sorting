@@ -8,8 +8,9 @@
 		public override IEnumerable<int> Execute(IEnumerable<int> unsortedList)
 		{
 			var sortedList = Copy(unsortedList).ToList();
-			var count = sortedList.Count;
+			AddToIntermediateSorts(unsortedList);
 
+			var count = sortedList.Count;
 			for (var i = count - 1; i >= 0; i--)
 			{
 				var minValue = GetMin(sortedList, i);

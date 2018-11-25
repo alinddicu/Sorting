@@ -18,7 +18,7 @@
 			}
 		}
 
-        protected void AddToIntermediateSorts(ICollection<int> intermediatSort)
+        protected void AddToIntermediateSorts(IEnumerable<int> intermediatSort)
         {
             IntermediateSorts.Add(Copy(intermediatSort).ToList());
         }

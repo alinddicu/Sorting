@@ -8,6 +8,7 @@
 		public override IEnumerable<int> Execute(IEnumerable<int> input)
 		{
 			var sortedList = Copy(input).ToArray();
+			AddToIntermediateSorts(sortedList);
 			bool inversion;
 
 			do

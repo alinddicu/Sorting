@@ -6,7 +6,9 @@
 	{
 		public override IEnumerable<int> Execute(IEnumerable<int> unsortedList)
 		{
+			AddToIntermediateSorts(unsortedList);
 			var sortedList = new List<int>();
+
 			foreach (var unsortedItem in unsortedList)
 			{
 				var inserted = false;

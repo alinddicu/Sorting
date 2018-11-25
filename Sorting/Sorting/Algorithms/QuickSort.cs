@@ -11,6 +11,7 @@
 		public override IEnumerable<int> Execute(IEnumerable<int> unsortedList)
 		{
 			_copy = Copy(unsortedList).ToArray();
+			AddToIntermediateSorts(_copy);
 
 			Quicksort(_copy, 0, _copy.Length - 1);
 

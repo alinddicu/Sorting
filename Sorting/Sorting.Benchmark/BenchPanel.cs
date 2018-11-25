@@ -17,40 +17,39 @@
 		private readonly Panel _drawingPanel;
 		private readonly int _maxSortValue;
 		private readonly Label _sortNameLabel;
+		private int _lastIntermediateSortIndex;
 
 		public BenchPanel(SortBase sortBase, IEnumerable<int> unsortedList, int maxSortValue)
 		{
 			sortBase.Execute(unsortedList.ToArray());
 			IntermediateSorts = sortBase.IntermediateSorts;
-			var iterations = IntermediateSorts.Count;
-			var sortName = sortBase.GetType().Name;
+			var iterations = IntermediateSorts.Count - 1;
 			_maxSortValue = maxSortValue;
 			BackColor = BackColorConst;
 			ForeColor = ForeColorConst;
 
 			_drawingPanel = new Panel { Height = 200, Width = 200, BackColor = BackColorConst, ForeColor = ForeColorConst };
+			var sortName = sortBase.GetType().Name;
 			var sortNameText = $"{sortName} - {iterations} iterations";
 			var sortNameWidth = sortNameText.Length * 7;
 			_sortNameLabel = new Label { Text = sortNameText, BackColor = BackColorConst, Height = 12, Width = sortNameWidth, ForeColor = ForeColorConst };
 			Controls.AddRange(new Control[] { _sortNameLabel, _drawingPanel });
 			Height = _drawingPanel.Height + _sortNameLabel.Height;
-
-			SortName = sortName;
+			
 			_graphics = _drawingPanel.CreateGraphics();
 			_drawingPanel.Paint += BenchPanel_Paint;
 		}
 
 		private void BenchPanel_Paint(object sender, PaintEventArgs e)
 		{
-			DrawIntermediateSort(e.Graphics, IntermediateSorts.Count - 1);
+			DrawIntermediateSort(e.Graphics, _lastIntermediateSortIndex);
 		}
 
 		public List<ICollection<int>> IntermediateSorts { get; }
 
-		public string SortName { get; private set; }
-
 		private void DrawIntermediateSort(Graphics graphics, int intermediateSortIndex)
 		{
+			_lastIntermediateSortIndex = intermediateSortIndex;
 			RefreshLabels();
 
 			graphics.Clear(_drawingPanel.BackColor);
