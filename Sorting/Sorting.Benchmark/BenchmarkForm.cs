@@ -29,6 +29,7 @@
 			Controls.Add(_basePanel);
 
 			InitBenchWorkers();
+			EnableButtons(true, false);
 		}
 
 		private void InitForm()
@@ -59,6 +60,8 @@
 			{
 				benchBwWorker.RunWorkerAsync();
 			}
+
+			EnableButtons(false, true);
 		}
 
 		private void cancelToolStripMenuItem_Click(object sender, System.EventArgs e)
@@ -67,6 +70,14 @@
 			{
 				benchBackgroundWorker.CancelAsync();
 			}
+
+			EnableButtons(true, false);
+		}
+
+		private void EnableButtons(bool startEnabled, bool cancelEnabled)
+		{
+			startToolStripMenuItem.Enabled = startEnabled;
+			cancelToolStripMenuItem.Enabled = cancelEnabled;
 		}
 	}
 }
