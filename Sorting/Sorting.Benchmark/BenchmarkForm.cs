@@ -11,7 +11,7 @@
 	public partial class BenchmarkForm : Form
 	{
 		private readonly int _maxSortValue;
-		private readonly FlowLayoutPanel _basePanel;
+		private FlowLayoutPanel _basePanel;
 		private readonly List<BenchBackgroundWorker> _benchBackgroundWorkers = new List<BenchBackgroundWorker>();
 		private readonly UniqueElementsGenerator _generator = new UniqueElementsGenerator();
 
@@ -21,19 +21,25 @@
 		{
 			_maxSortValue = maxSortValue;
 			InitializeComponent();
+			Shuffle();
+			InitBasePanel();
+			InitBenchWorkers();
 			InitForm();
+
+			_basePanel.Height = Height + menuStripBench.Height;
+
+			EnableButtons(true, false, true);
+		}
+
+		private void InitBasePanel()
+		{
 			_basePanel = new FlowLayoutPanel
 			{
 				Width = Width,
 				Padding = new Padding(0, menuStripBench.Height, 0, 0), // bug fix: menu strip was covering the top of the rop panels
-				Height = Height + menuStripBench.Height,
 				Dock = DockStyle.Fill
 			};
 			Controls.Add(_basePanel);
-
-			Shuffle();
-			InitBenchWorkers();
-			EnableButtons(true, false, true);
 		}
 
 		private void Shuffle()
@@ -43,8 +49,11 @@
 
 		private void InitForm()
 		{
-			Width = 429;
-			Height = 475 + menuStripBench.Height;
+			var count = _benchBackgroundWorkers.Count;
+			var benchPanel = _benchBackgroundWorkers.First().BenchPanel;
+
+			Width = 3 * (benchPanel.Width + 12);
+			Height = count / 2 * benchPanel.Height + menuStripBench.Height + 51;
 			CenterToScreen();
 		}
 
@@ -53,7 +62,8 @@
 			var benchPanels = Assembly.GetAssembly(typeof(SortBase))
 				.GetHeirsOf<SortBase>()
 				.Select(sort => new BenchPanel(sort, _unsortedList, _maxSortValue));
-			//var benchPanels = new [] {new BenchPanel(new InsertionSort(), _unsortedList, _maxSortValue) };
+			//var fourSorts = new SortBase[] { new InsertionSort(), new BubbleSort(), new MergeSort(), new QuickSort(),  };
+			//var benchPanels = fourSorts.Select(s => new BenchPanel(s, _unsortedList, _maxSortValue));
 			foreach (var benchPanel in benchPanels)
 			{
 				_basePanel.Controls.Add(benchPanel);
