@@ -41,11 +41,6 @@
 		{
 			_sortBase.Execute(unsortedList.ToArray());
 			IntermediateSorts = _sortBase.IntermediateSorts;
-			var sortName = _sortBase.GetType().Name;
-			var sortNameText = $"{sortName} - {_sortBase.Duration} ticks";
-			var sortNameWidth = sortNameText.Length * 7;
-			_sortNameLabel.Text = sortNameText;
-			_sortNameLabel.Width = sortNameWidth;
 		}
 
 		private void BenchPanel_Paint(object sender, PaintEventArgs e)
@@ -89,6 +84,17 @@
 		{
 			// fix bug: colors don't apply to labels when initializing
 			_sortNameLabel.Refresh();
+		}
+
+		public void SetRanks()
+		{
+			var sortName = _sortBase.GetType().Name;
+			var rank = _sortBase.Rank.ToOrdinal();
+			var sortNameText = $"{sortName} - {rank} ({_sortBase.Duration} ticks)";
+			var sortNameWidth = sortNameText.Length * 7;
+			_sortNameLabel.Text = sortNameText;
+			_sortNameLabel.Width = sortNameWidth;
+			//_sortNameLabel.Refresh();
 		}
 	}
 }

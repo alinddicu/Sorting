@@ -1,10 +1,14 @@
 ﻿namespace Sorting.Algorithms
 {
-    using System.Collections.Generic;
+	using System.Collections.Generic;
 	using System.Linq;
 
 	public class SelectionSort: SortBase
 	{
+		public SelectionSort(RankingSystem rankingSystem) : base(rankingSystem)
+		{
+		}
+
 		public override IEnumerable<int> Execute(ICollection<int> unsortedList)
 		{
 			base.Execute(unsortedList);

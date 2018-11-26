@@ -7,6 +7,10 @@
 	{
 		private int[] _copy;
 
+		public QuickSort(RankingSystem rankingSystem) : base(rankingSystem)
+		{
+		}
+
 		// https://www.geeksforgeeks.org/quick-sort/
 		public override IEnumerable<int> Execute(ICollection<int> unsortedList)
 		{

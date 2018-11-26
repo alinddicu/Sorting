@@ -8,8 +8,18 @@
 	public abstract class SortBase
 	{
 		private Stopwatch _stopWatch;
+		private readonly RankingSystem _rankingSystem;
+		private readonly string _sortName;
+
+		protected SortBase(RankingSystem rankingSystem)
+		{
+			_rankingSystem = rankingSystem;
+			_sortName = GetType().Name;
+		}
 		
 		public List<ICollection<int>> IntermediateSorts { get; } = new List<ICollection<int>>();
+
+		public int Rank => _rankingSystem.Get(_sortName);
 
 		public long Duration { get; private set; }
 
@@ -24,6 +34,7 @@
 		{
 			_stopWatch.Stop();
 			Duration = _stopWatch.ElapsedTicks;
+			_rankingSystem.Add(_sortName, Duration);
 		}
 
 		protected IEnumerable<int> Copy(IEnumerable<int> input)

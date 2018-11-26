@@ -4,6 +4,10 @@
 
 	public class InsertionSort : SortBase
 	{
+		public InsertionSort(RankingSystem rankingSystem) : base(rankingSystem)
+		{
+		}
+
 		public override IEnumerable<int> Execute(ICollection<int> unsortedList)
 		{
 			base.Execute(unsortedList);

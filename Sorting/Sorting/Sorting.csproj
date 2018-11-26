@@ -46,6 +46,8 @@
     <Compile Include="Algorithms\MergeSort.cs" />
     <Compile Include="Algorithms\QuickSort.cs" />
     <Compile Include="Algorithms\SelectionSort.cs" />
+    <Compile Include="MathExtensions.cs" />
+    <Compile Include="RankingSystem.cs" />
     <Compile Include="ReflectionHelper.cs" />
     <Compile Include="UniqueElementsGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

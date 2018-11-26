@@ -14,6 +14,7 @@
 		private FlowLayoutPanel _basePanel;
 		private readonly List<BenchBackgroundWorker> _benchBackgroundWorkers = new List<BenchBackgroundWorker>();
 		private readonly UniqueElementsGenerator _generator = new UniqueElementsGenerator();
+		private readonly RankingSystem _rankingSystem = new RankingSystem();
 
 		private IEnumerable<int> _unsortedList;
 
@@ -44,6 +45,7 @@
 
 		private void Shuffle()
 		{
+			_rankingSystem.Clear();
 			_unsortedList = _generator.Execute(_maxSortValue).ToArray();
 		}
 
@@ -61,7 +63,7 @@
 		private void InitBenchWorkers()
 		{
 			var benchPanels = Assembly.GetAssembly(typeof(SortBase))
-				.GetHeirsOf<SortBase>()
+				.GetHeirsOf<SortBase>(_rankingSystem)
 				.Select(sort => new BenchPanel(sort, _unsortedList, _maxSortValue));
 			//var fourSorts = new SortBase[] { new InsertionSort(), new BubbleSort(), new MergeSort(), new QuickSort(),  };
 			//var benchPanels = fourSorts.Select(s => new BenchPanel(s, _unsortedList, _maxSortValue));
@@ -71,16 +73,20 @@
 				var benchBwWorker = new BenchBackgroundWorker(benchPanel);
 				_benchBackgroundWorkers.Add(benchBwWorker);
 			}
+
+			SetRanks();
 		}
 
 		private void startToolStripMenuItem_Click(object sender, System.EventArgs e)
 		{
+			_rankingSystem.Clear();
 			foreach (var benchBwWorker in _benchBackgroundWorkers)
 			{
 				benchBwWorker.BenchPanel.Init(_unsortedList);
 				benchBwWorker.RunWorkerAsync();
 			}
-
+			
+			SetRanks();
 			EnableButtons(false, true, false);
 		}
 
@@ -108,6 +114,16 @@
 			{
 				benchBwWorker.BenchPanel.Init(_unsortedList);
 				benchBwWorker.BenchPanel.DrawIntermediateSort(0);
+			}
+
+			SetRanks();
+		}
+
+		private void SetRanks()
+		{
+			foreach (var benchBwWorker in _benchBackgroundWorkers)
+			{
+				benchBwWorker.BenchPanel.SetRanks();
 			}
 		}
 	}

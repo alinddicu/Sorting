@@ -5,6 +5,10 @@
 
 	public class BubbleSort: SortBase
 	{
+		public BubbleSort(RankingSystem rankingSystem): base(rankingSystem)
+		{
+		}
+
 		public override IEnumerable<int> Execute(ICollection<int> unsortedList)
 		{
 			base.Execute(unsortedList);

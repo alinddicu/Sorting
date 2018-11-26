@@ -5,7 +5,12 @@
 
 	public class MergeSort: SortBase
 	{
+
 		private int[] _copy;
+
+		public MergeSort(RankingSystem rankingSystem) : base(rankingSystem)
+		{
+		}
 
 		public override IEnumerable<int> Execute(ICollection<int> unsortedList)
 		{
