@@ -41,9 +41,8 @@
 		{
 			_sortBase.Execute(unsortedList.ToArray());
 			IntermediateSorts = _sortBase.IntermediateSorts;
-			var iterations = IntermediateSorts.Count - 1;
 			var sortName = _sortBase.GetType().Name;
-			var sortNameText = $"{sortName} - {iterations} iterations";
+			var sortNameText = $"{sortName} - {_sortBase.Duration} ticks";
 			var sortNameWidth = sortNameText.Length * 7;
 			_sortNameLabel.Text = sortNameText;
 			_sortNameLabel.Width = sortNameWidth;

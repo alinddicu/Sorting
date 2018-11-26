@@ -29,6 +29,7 @@
 				}
 			} while (inversion);
 
+			StopWatch();
 			return sortedList;
 		}
 	}

@@ -15,6 +15,7 @@
 			
 			TopDownMergeSort(_copy, new int[_copy.Length], _copy.Length);
 
+			StopWatch();
 			return _copy;
 		}
 		

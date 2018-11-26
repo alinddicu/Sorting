@@ -16,6 +16,7 @@
 
 			Quicksort(_copy, 0, _copy.Length - 1);
 
+			StopWatch();
 			return _copy;
 		}
 

@@ -21,6 +21,7 @@
                 AddToIntermediateSorts(sortedList);
             }
 
+			StopWatch();
 			return sortedList;
 		}
 
