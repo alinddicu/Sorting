@@ -13,7 +13,7 @@
         {
             var topLimit = 500;
             var expected = Enumerable.Range(1, topLimit).ToArray();
-            var testArray = new UniqueElementsGenerator().Execute(topLimit);
+            var testArray = new UniqueElementsGenerator().Execute(topLimit).ToArray();
             var algorithms = Assembly.GetAssembly(typeof(SortBase)).GetHeirsOf<SortBase>();
 
             var results = algorithms.Select(a => a.Execute(testArray));

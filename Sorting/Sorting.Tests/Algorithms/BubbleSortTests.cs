@@ -13,7 +13,8 @@
 		{
 			var topLimit = 100;
 			var expected = Enumerable.Range(1, topLimit).ToArray();
-			var result = new BubbleSort().Execute(new UniqueElementsGenerator().Execute(topLimit)).ToArray();
+			var testArray = new UniqueElementsGenerator().Execute(topLimit).ToArray();
+			var result = new BubbleSort().Execute(testArray).ToArray();
 
 			Check.That(result).IsEqualTo(expected);
 		}

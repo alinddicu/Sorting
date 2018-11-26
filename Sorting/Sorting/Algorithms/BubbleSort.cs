@@ -10,8 +10,8 @@
 			base.Execute(unsortedList);
 			var sortedList = Copy(unsortedList).ToArray();
 			AddToIntermediateSorts(sortedList);
-			bool inversion;
 
+			bool inversion;
 			do
 			{
 				inversion = false;
