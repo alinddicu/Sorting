@@ -54,6 +54,7 @@
 
 			Width = 3 * (benchPanel.Width + 12);
 			Height = count / 2 * benchPanel.Height + menuStripBench.Height + 51;
+			Text = $"Sorting algorithms benchmark on {_maxSortValue} values";
 			CenterToScreen();
 		}
 
