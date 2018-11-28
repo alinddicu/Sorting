@@ -54,8 +54,10 @@
 			var count = _benchBackgroundWorkers.Count;
 			var benchPanel = _benchBackgroundWorkers.First().BenchPanel;
 
-			Width = 3 * (benchPanel.Width + 12);
-			Height = count / 2 * benchPanel.Height + menuStripBench.Height + 51;
+			var weightCount = count < 3 ? count : 3;
+			Width = weightCount * (benchPanel.Width + 12);
+			var heightCount = count <= 3 ? 1 : count / 3 + 1;
+			Height = heightCount * (benchPanel.Height + 3) + menuStripBench.Height + 50;
 			Text = $"Sorting algorithms benchmark on {_maxSortValue} values";
 			CenterToScreen();
 		}
@@ -65,7 +67,11 @@
 			var benchPanels = Assembly.GetAssembly(typeof(SortBase))
 				.GetHeirsOf<SortBase>(_rankingSystem)
 				.Select(sort => new BenchPanel(sort, _unsortedList, _maxSortValue));
-			//var fourSorts = new SortBase[] { new InsertionSort(), new BubbleSort(), new MergeSort(), new QuickSort(),  };
+			//var fourSorts = new SortBase[]
+			//{
+			//	new InsertionSort(_rankingSystem), new BubbleSort(_rankingSystem), new MergeSort(_rankingSystem), //new QuickSort(_rankingSystem),
+			//	new InsertionSort(_rankingSystem), new BubbleSort(_rankingSystem), new MergeSort(_rankingSystem), new QuickSort(_rankingSystem)
+			//};
 			//var benchPanels = fourSorts.Select(s => new BenchPanel(s, _unsortedList, _maxSortValue));
 			foreach (var benchPanel in benchPanels)
 			{
@@ -74,7 +80,7 @@
 				_benchBackgroundWorkers.Add(benchBwWorker);
 			}
 
-			SetRanks();
+			SetSortRanks();
 		}
 
 		private void startToolStripMenuItem_Click(object sender, System.EventArgs e)
@@ -85,8 +91,8 @@
 				benchBwWorker.BenchPanel.Init(_unsortedList);
 				benchBwWorker.RunWorkerAsync();
 			}
-			
-			SetRanks();
+
+			SetSortRanks();
 			EnableButtons(false, true, false);
 		}
 
@@ -116,14 +122,14 @@
 				benchBwWorker.BenchPanel.DrawIntermediateSort(0);
 			}
 
-			SetRanks();
+			SetSortRanks();
 		}
 
-		private void SetRanks()
+		private void SetSortRanks()
 		{
 			foreach (var benchBwWorker in _benchBackgroundWorkers)
 			{
-				benchBwWorker.BenchPanel.SetRanks();
+				benchBwWorker.BenchPanel.SetSortRanks();
 			}
 		}
 	}

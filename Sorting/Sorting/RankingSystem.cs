@@ -34,9 +34,9 @@
 				Duration = duration;
 			}
 
-			public string Name { get; private set; }
+			public string Name { get; }
 
-			public long Duration { get; private set; } 
+			public long Duration { get; } 
 		}
 	}
 }

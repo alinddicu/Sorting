@@ -86,7 +86,7 @@
 			_sortNameLabel.Refresh();
 		}
 
-		public void SetRanks()
+		public void SetSortRanks()
 		{
 			var sortName = _sortBase.GetType().Name;
 			var rank = _sortBase.Rank.ToOrdinal();
