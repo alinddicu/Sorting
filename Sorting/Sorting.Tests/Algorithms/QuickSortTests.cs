@@ -14,7 +14,7 @@
 			var topLimit = 5;
 			var expected = Enumerable.Range(1, topLimit).ToArray();
 			var testArray = new UniqueElementsGenerator().Execute(topLimit).ToArray();
-			var result = new QuickSort().Execute(testArray).ToArray();
+			var result = new QuickSort(new RankingSystem()).Execute(testArray).ToArray();
 
 			Check.That(result).IsEqualTo(expected);
 		}
