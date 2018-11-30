@@ -56,7 +56,7 @@
 
 			var weightCount = count < 3 ? count : 3;
 			Width = weightCount * (benchPanel.Width + 12);
-			var heightCount = count <= 3 ? 1 : count / 3 + 1;
+			var heightCount = count <= 3 ? 1 : (count % 3 == 0 ? count / 3: count / 3 + 1);
 			Height = heightCount * (benchPanel.Height + 3) + menuStripBench.Height + 50;
 			Text = $"Sorting algorithms benchmark on {_maxSortValue} values";
 			CenterToScreen();
@@ -69,8 +69,17 @@
 				.Select(sort => new BenchPanel(sort, _unsortedList, _maxSortValue));
 			//var fourSorts = new SortBase[]
 			//{
-			//	new InsertionSort(_rankingSystem), new BubbleSort(_rankingSystem), new MergeSort(_rankingSystem), //new QuickSort(_rankingSystem),
-			//	new InsertionSort(_rankingSystem), new BubbleSort(_rankingSystem), new MergeSort(_rankingSystem), new QuickSort(_rankingSystem)
+			//	new InsertionSort(_rankingSystem),
+			//	new BubbleSort(_rankingSystem),
+			//	new MergeSort(_rankingSystem),
+			//	new QuickSort(_rankingSystem),
+			//	new InsertionSort(_rankingSystem),
+			//	new BubbleSort(_rankingSystem),
+			//	new MergeSort(_rankingSystem),
+			//	new QuickSort(_rankingSystem),
+			//	new BubbleSort(_rankingSystem),
+			//	new MergeSort(_rankingSystem),
+			//	new QuickSort(_rankingSystem)
 			//};
 			//var benchPanels = fourSorts.Select(s => new BenchPanel(s, _unsortedList, _maxSortValue));
 			foreach (var benchPanel in benchPanels)
