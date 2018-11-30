@@ -141,5 +141,10 @@
 				benchBwWorker.BenchPanel.SetSortRanks();
 			}
 		}
+
+		private void exitToolStripMenuItem_Click(object sender, System.EventArgs e)
+		{
+			Close();
+		}
 	}
 }
