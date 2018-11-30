@@ -5,10 +5,12 @@
 
 	public class BenchBackgroundWorker : BackgroundWorker
 	{
+		private int _drawDelay;
 		private bool _keepRunning = true;
 
-		public BenchBackgroundWorker(BenchPanel benchPanel)
+		public BenchBackgroundWorker(BenchPanel benchPanel, int drawDelay)
 		{
+			_drawDelay = drawDelay;
 			WorkerReportsProgress = true;
 			WorkerSupportsCancellation = true;
 			BenchPanel = benchPanel;
@@ -30,7 +32,7 @@
 			var bbw = sender as BenchBackgroundWorker;
 			for (var i = 0; i < BenchPanel.IntermediateSorts.Count && !CancellationPending && _keepRunning; i++)
 			{
-				Thread.Sleep(100);
+				Thread.Sleep(_drawDelay);
 				bbw.ReportProgress(i);
 			}
 
@@ -40,6 +42,11 @@
 		private void ProgressChangedHandler(object sender, ProgressChangedEventArgs e)
 		{
 			BenchPanel.DrawIntermediateSort(e.ProgressPercentage);
+		}
+
+		public void SetDrawDelay(int drawDelay)
+		{
+			_drawDelay = drawDelay;
 		}
 	}
 }

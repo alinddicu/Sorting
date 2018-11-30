@@ -10,7 +10,8 @@
 
 	public partial class BenchmarkForm : Form
 	{
-		private readonly int _maxSortValue;
+		private int _maxValuesToSort = 200;
+		private int _drawDelay = 100;
 		private FlowLayoutPanel _basePanel;
 		private readonly List<BenchBackgroundWorker> _benchBackgroundWorkers = new List<BenchBackgroundWorker>();
 		private readonly UniqueElementsGenerator _generator = new UniqueElementsGenerator();
@@ -18,9 +19,8 @@
 
 		private IEnumerable<int> _unsortedList;
 
-		public BenchmarkForm(int maxSortValue)
+		public BenchmarkForm()
 		{
-			_maxSortValue = maxSortValue;
 			InitializeComponent();
 			Shuffle();
 			InitBasePanel();
@@ -46,7 +46,7 @@
 		private void Shuffle()
 		{
 			_rankingSystem.Clear();
-			_unsortedList = _generator.Execute(_maxSortValue).ToArray();
+			_unsortedList = _generator.Execute(_maxValuesToSort).ToArray();
 		}
 
 		private void InitForm()
@@ -58,15 +58,20 @@
 			Width = weightCount * (benchPanel.Width + 12);
 			var heightCount = count <= 3 ? 1 : (count % 3 == 0 ? count / 3: count / 3 + 1);
 			Height = heightCount * (benchPanel.Height + 3) + menuStripBench.Height + 50;
-			Text = $"Sorting algorithms benchmark on {_maxSortValue} values";
+			SetText();
 			CenterToScreen();
+		}
+
+		private void SetText()
+		{
+			Text = $"Sorting algorithms benchmark on {_maxValuesToSort} values";
 		}
 
 		private void InitBenchWorkers()
 		{
 			var benchPanels = Assembly.GetAssembly(typeof(SortBase))
 				.GetHeirsOf<SortBase>(_rankingSystem)
-				.Select(sort => new BenchPanel(sort, _unsortedList, _maxSortValue));
+				.Select(sort => new BenchPanel(sort, _unsortedList, _maxValuesToSort));
 			//var fourSorts = new SortBase[]
 			//{
 			//	new InsertionSort(_rankingSystem),
@@ -81,11 +86,11 @@
 			//	new MergeSort(_rankingSystem),
 			//	new QuickSort(_rankingSystem)
 			//};
-			//var benchPanels = fourSorts.Select(s => new BenchPanel(s, _unsortedList, _maxSortValue));
+			//var benchPanels = fourSorts.Select(s => new BenchPanel(s, _unsortedList, _maxValuesToSort));
 			foreach (var benchPanel in benchPanels)
 			{
 				_basePanel.Controls.Add(benchPanel);
-				var benchBwWorker = new BenchBackgroundWorker(benchPanel);
+				var benchBwWorker = new BenchBackgroundWorker(benchPanel, _drawDelay);
 				_benchBackgroundWorkers.Add(benchBwWorker);
 			}
 
@@ -97,6 +102,7 @@
 			_rankingSystem.Clear();
 			foreach (var benchBwWorker in _benchBackgroundWorkers)
 			{
+				benchBwWorker.SetDrawDelay(_drawDelay);
 				benchBwWorker.BenchPanel.Init(_unsortedList);
 				benchBwWorker.RunWorkerAsync();
 			}
@@ -124,6 +130,11 @@
 
 		private void shuffleToolStripMenuItem_Click(object sender, System.EventArgs e)
 		{
+			ShuffleAction();
+		}
+
+		private void ShuffleAction()
+		{
 			Shuffle();
 			foreach (var benchBwWorker in _benchBackgroundWorkers)
 			{
@@ -145,6 +156,24 @@
 		private void exitToolStripMenuItem_Click(object sender, System.EventArgs e)
 		{
 			Close();
+		}
+
+		private void optionsToolStripMenuItem2_Click(object sender, System.EventArgs e)
+		{
+			var optionsForm = new OptionsForm(this, _maxValuesToSort, _drawDelay);
+			optionsForm.ShowDialog();
+		}
+
+		public void UpdateOptions(int maxValuesToSort, int drawDelay)
+		{
+			if (_maxValuesToSort != maxValuesToSort)
+			{
+				_maxValuesToSort = maxValuesToSort;
+				SetText();
+				ShuffleAction();
+			}
+
+			_drawDelay = drawDelay;
 		}
 	}
 }
