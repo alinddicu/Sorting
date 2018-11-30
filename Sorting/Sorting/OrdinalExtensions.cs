@@ -3,7 +3,7 @@
 	using System;
 	using System.Collections.Generic;
 
-	public static class MathExtensions
+	public static class OrdinalExtensions
 	{
 		public static string ToOrdinal(this long number)
 		{
