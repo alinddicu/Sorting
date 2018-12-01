@@ -13,7 +13,7 @@
 			CenterToScreen();
 
 			maxValuesToSortTrackBar.Minimum = 100;
-			maxValuesToSortTrackBar.Maximum = 4000;
+			maxValuesToSortTrackBar.Maximum = 1200;
 			maxValuesToSortTrackBar.Value = maxValuesToSort;
 			maxValuesToSortTrackBar.LargeChange = 100;
 			maxValuesToSortTrackBar.SmallChange = 100;
