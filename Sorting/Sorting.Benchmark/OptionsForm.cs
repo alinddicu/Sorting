@@ -34,8 +34,8 @@
 
 		private void saveButton_Click(object sender, System.EventArgs e)
 		{
-			_benchmarkForm.UpdateOptions(maxValuesToSortTrackBar.Value, drawDelayTrackBar.Value);
 			Close();
+			_benchmarkForm.UpdateOptions(maxValuesToSortTrackBar.Value, drawDelayTrackBar.Value);
 		}
 	}
 }

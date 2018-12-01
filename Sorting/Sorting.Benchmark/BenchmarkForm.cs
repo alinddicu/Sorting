@@ -11,7 +11,7 @@
 	public partial class BenchmarkForm : Form
 	{
 		private int _maxValuesToSort = 200;
-		private int _drawDelay = 100;
+		private int _drawDelay = 150;
 		private FlowLayoutPanel _basePanel;
 		private readonly List<BenchBackgroundWorker> _benchBackgroundWorkers = new List<BenchBackgroundWorker>();
 		private readonly UniqueElementsGenerator _generator = new UniqueElementsGenerator();
@@ -45,8 +45,10 @@
 
 		private void Shuffle()
 		{
+			Cursor.Current = Cursors.WaitCursor;
 			_rankingSystem.Clear();
 			_unsortedList = _generator.Execute(_maxValuesToSort).ToArray();
+			Cursor.Current = Cursors.Default;
 		}
 
 		private void InitForm()
