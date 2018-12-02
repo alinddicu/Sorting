@@ -1,5 +1,6 @@
 ﻿namespace Sort.Benchmark
 {
+	using System;
 	using System.Windows.Forms;
 
 	public partial class OptionsForm : Form
@@ -18,6 +19,7 @@
 			maxValuesToSortTrackBar.LargeChange = 100;
 			maxValuesToSortTrackBar.SmallChange = 100;
 			maxValuesToSortTrackBar.TickFrequency = 100;
+			maxValuesToSortTrackBar.Scroll += MaxValuesToSortTrackBar_Scroll;
 
 			drawDelayTrackBar.Minimum = 50;
 			drawDelayTrackBar.Maximum = 1000;
@@ -25,14 +27,31 @@
 			drawDelayTrackBar.LargeChange = 50;
 			drawDelayTrackBar.SmallChange = 50;
 			drawDelayTrackBar.TickFrequency = 100;
+			drawDelayTrackBar.Scroll += DrawDelayTrackBar_Scroll;
 		}
 
-		private void cancelButton_Click(object sender, System.EventArgs e)
+		private void DrawDelayTrackBar_Scroll(object sender, EventArgs e)
+		{
+			DiscretizeTrackBarValue(sender as TrackBar);
+		}
+
+		private void MaxValuesToSortTrackBar_Scroll(object sender, EventArgs e)
+		{
+			DiscretizeTrackBarValue(sender as TrackBar);
+		}
+
+		private void DiscretizeTrackBarValue(TrackBar trackBar)
+		{
+			var largeChange = trackBar.LargeChange;
+			trackBar.Value = trackBar.Value / largeChange * largeChange;
+		}
+
+		private void cancelButton_Click(object sender, EventArgs e)
 		{
 			Close();
 		}
 
-		private void saveButton_Click(object sender, System.EventArgs e)
+		private void saveButton_Click(object sender, EventArgs e)
 		{
 			Close();
 			_benchmarkForm.UpdateOptions(maxValuesToSortTrackBar.Value, drawDelayTrackBar.Value);
