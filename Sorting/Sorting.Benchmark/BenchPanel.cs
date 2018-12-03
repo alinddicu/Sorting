@@ -7,7 +7,7 @@
 
 	using Sorting;
 
-	public class BenchPanel : FlowLayoutPanel
+	public class BenchPanel : FlowLayoutPanel, IBenchPanel
 	{
 		private static readonly Color BackColorConst = Color.Black;
 		private static readonly Color ForeColorConst = Color.White;

@@ -8,12 +8,12 @@
 	using System.Reflection;
 	using Sorting.Algorithms;
 
-	public partial class BenchmarkForm : Form
+	public partial class BenchmarkForm : Form, IBenchmarkForm
 	{
 		private int _maxValuesToSort = 200;
 		private int _drawDelay = 150;
 		private FlowLayoutPanel _basePanel;
-		private readonly List<BenchBackgroundWorker> _benchBackgroundWorkers = new List<BenchBackgroundWorker>();
+		private readonly List<IBenchBackgroundWorker> _benchBackgroundWorkers = new List<IBenchBackgroundWorker>();
 		private readonly UniqueElementsGenerator _generator = new UniqueElementsGenerator();
 		private readonly RankingSystem _rankingSystem = new RankingSystem();
 

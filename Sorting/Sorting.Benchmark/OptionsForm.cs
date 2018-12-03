@@ -5,9 +5,9 @@
 
 	public partial class OptionsForm : Form
 	{
-		private readonly BenchmarkForm _benchmarkForm;
+		private readonly IBenchmarkForm _benchmarkForm;
 
-		public OptionsForm(BenchmarkForm benchmarkForm, int maxValuesToSort, int drawDelay)
+		public OptionsForm(IBenchmarkForm benchmarkForm, int maxValuesToSort, int drawDelay)
 		{
 			_benchmarkForm = benchmarkForm;
 			InitializeComponent();

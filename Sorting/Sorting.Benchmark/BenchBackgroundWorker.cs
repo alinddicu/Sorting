@@ -3,7 +3,7 @@
 	using System.ComponentModel;
 	using System.Threading;
 
-	public class BenchBackgroundWorker : BackgroundWorker
+	public class BenchBackgroundWorker : BackgroundWorker, IBenchBackgroundWorker
 	{
 		private int _drawDelay;
 		private bool _keepRunning = true;
@@ -24,12 +24,12 @@
 			_keepRunning = false;
 		}
 
-		public BenchPanel BenchPanel { get; }
+		public IBenchPanel BenchPanel { get; }
 
 		private void DoWorkHandler(object sender, DoWorkEventArgs e)
 		{
 			_keepRunning = true;
-			var bbw = sender as BenchBackgroundWorker;
+			var bbw = (IBenchBackgroundWorker)sender;
 			for (var i = 0; i < BenchPanel.IntermediateSorts.Count && !CancellationPending && _keepRunning; i++)
 			{
 				Thread.Sleep(_drawDelay);

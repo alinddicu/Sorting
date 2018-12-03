@@ -58,6 +58,9 @@
     <Compile Include="BenchPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="IBenchBackgroundWorker.cs" />
+    <Compile Include="IBenchmarkForm.cs" />
+    <Compile Include="IBenchPanel.cs" />
     <Compile Include="OptionsForm.cs">
       <SubType>Form</SubType>
     </Compile>
