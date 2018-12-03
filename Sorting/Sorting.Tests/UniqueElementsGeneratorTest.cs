@@ -1,9 +1,9 @@
-﻿using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NFluent;
-
-namespace Sorting.Tests
+﻿namespace Sorting.Tests
 {
+	using System.Linq;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using NFluent;
+
 	[TestClass]
 	public class UniqueElementsGeneratorTest
 	{

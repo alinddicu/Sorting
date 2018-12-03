@@ -19,11 +19,17 @@
 
 		public int Get(string sortName)
 		{
-			return _ranking
+			var rank = _ranking
 				.OrderBy(position => position.Duration)
-				.Select((position, index) => new {P = position, Rank = index})
-				.First(o => o.P.Name == sortName)
-				.Rank + 1;
+				.Select((position, index) => new { P = position, Rank = index })
+				.FirstOrDefault(o => o.P.Name == sortName);
+
+			if (rank == null)
+			{
+				throw new KeyNotFoundException($"Sort name '{sortName}' not found");
+			}
+
+			return rank.Rank + 1;
 		}
 
 		private class Position
@@ -36,7 +42,7 @@
 
 			public string Name { get; }
 
-			public long Duration { get; } 
+			public long Duration { get; }
 		}
 	}
 }
