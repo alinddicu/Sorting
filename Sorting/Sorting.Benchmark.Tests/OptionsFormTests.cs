@@ -33,12 +33,39 @@
 			Check.That(drawDelayTrackBar.TickFrequency).IsEqualTo(100);
 		}
 
+		[TestMethod]
+		public void GivenOptionsFormWhenModifyValuesThenNewValuesAreUpdatedInBenchmarkForm()
+		{
+			var benchmarkForm = new BenchmarkForm();
+			const int maxValuesToSort = 100;
+			const int drawDelay = 200;
+			var optionsForm = new OptionsForm(benchmarkForm, maxValuesToSort, drawDelay);
+
+			var maxValuesToSortTrackBar = (TrackBar)optionsForm.Controls.Find("maxValuesToSortTrackBar", true)[0];
+			maxValuesToSortTrackBar.Value = 150;
+			var drawDelayTrackBar = (TrackBar)optionsForm.Controls.Find("drawDelayTrackBar", true)[0];
+			drawDelayTrackBar.Value = 250;
+
+			var saveButton = (Button)optionsForm.Controls.Find("saveButton", true)[0];
+
+			optionsForm.Show();
+			saveButton.PerformClick();
+
+			Check.That(benchmarkForm.NewMaxValuesToSort).IsEqualTo(150);
+			Check.That(benchmarkForm.NewDrawDelay).IsEqualTo(250);
+		}
+
 		private class BenchmarkForm : IBenchmarkForm
 		{
 			public void UpdateOptions(int maxValuesToSort, int drawDelay)
 			{
-				throw new System.NotImplementedException();
+				NewMaxValuesToSort = maxValuesToSort;
+				NewDrawDelay = drawDelay;
 			}
+
+			public int NewMaxValuesToSort { get; private set; }
+
+			public int NewDrawDelay { get; private set; }
 		}
 	}
 }
