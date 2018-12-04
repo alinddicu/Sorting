@@ -30,17 +30,17 @@
 			drawDelayTrackBar.Scroll += DrawDelayTrackBar_Scroll;
 		}
 
-		private void DrawDelayTrackBar_Scroll(object sender, EventArgs e)
+		private static void DrawDelayTrackBar_Scroll(object sender, EventArgs e)
 		{
 			DiscretizeTrackBarValue(sender as TrackBar);
 		}
 
-		private void MaxValuesToSortTrackBar_Scroll(object sender, EventArgs e)
+		private static void MaxValuesToSortTrackBar_Scroll(object sender, EventArgs e)
 		{
 			DiscretizeTrackBarValue(sender as TrackBar);
 		}
 
-		private void DiscretizeTrackBarValue(TrackBar trackBar)
+		private static void DiscretizeTrackBarValue(TrackBar trackBar)
 		{
 			var largeChange = trackBar.LargeChange;
 			trackBar.Value = trackBar.Value / largeChange * largeChange;
