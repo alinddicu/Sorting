@@ -6,7 +6,9 @@
 		"target": "es6"
 	},
 	"files": [
-		"./Scripts/app.ts"
+		"./scripts/app.ts",
+		"./scripts/Algorithms/SortBase.ts",
+		"./scripts/Algorithms/BubbleSort.ts"
 	],
 	"compileOnSave": true
 }
