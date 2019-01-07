@@ -15,6 +15,9 @@ var Algorithms;
             this.intermediateSorts = [];
             return unsortedList;
         }
+        getIntermediateSorts() {
+            return this.intermediateSorts;
+        }
     }
     Algorithms.BaseSort = BaseSort;
 })(Algorithms || (Algorithms = {}));

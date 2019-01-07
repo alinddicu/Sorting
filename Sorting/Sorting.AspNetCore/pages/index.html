@@ -2,15 +2,19 @@
 <html>
 <head>
 	<meta charset="utf-8"/>
-	<script src="scripts/Algorithms/SortBase.ts"></script>
-	<script src="scripts/Algorithms/BubbleSort.ts"></script>
-	<script src="scripts/app.ts"></script>
+	<script src="scripts/Algorithms/SortBase.js"></script>
+	<script src="scripts/Algorithms/BubbleSort.js"></script>
+	<script src="scripts/app.js"></script>
 	<title></title>
 </head>
 <body>
 <div id="result"></div>
+<div id="results"></div>
 </body>
 </html>
 <script type="text/javascript">
-	document.getElementById('result').innerText = testSort();
+	var result = testSort();
+	document.getElementById('result').innerText = result.result;
+	document.getElementById('results').innerText = result.intermediateSorts;
+
 </script>
