@@ -8,6 +8,13 @@ var Algorithms;
             }
             return newArray;
         }
+        addToIntermediateSorts(intermediateSort) {
+            this.intermediateSorts.push(intermediateSort);
+        }
+        execute(unsortedList) {
+            this.intermediateSorts = [];
+            return unsortedList;
+        }
     }
     Algorithms.BaseSort = BaseSort;
 })(Algorithms || (Algorithms = {}));

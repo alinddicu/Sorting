@@ -3,9 +3,9 @@ var Algorithms;
 (function (Algorithms) {
     class BubbleSort extends Algorithms.BaseSort {
         execute(unsortedList) {
-            //base.Execute(unsortedList);
+            super.execute(unsortedList);
             let sortedList = super.copy(unsortedList);
-            //AddToIntermediateSorts(sortedList);
+            super.addToIntermediateSorts(sortedList);
             let inversion;
             do {
                 inversion = false;
@@ -16,6 +16,7 @@ var Algorithms;
                         sortedList[i] = right;
                         sortedList[i + 1] = left;
                         inversion = true;
+                        super.addToIntermediateSorts(sortedList);
                     }
                 }
             } while (inversion);

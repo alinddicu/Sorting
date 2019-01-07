@@ -13,8 +13,7 @@ var paths = {
 };
 
 gulp.task('clean', function () {
-	return	del(['wwwroot/scripts/**/*'])
-			&& del(['wwwroot/pages/**/*']);
+	return	del(['wwwroot/scripts/**/*']);
 });
 
 gulp.task('default', function () {

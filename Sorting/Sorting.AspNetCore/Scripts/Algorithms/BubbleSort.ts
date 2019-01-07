@@ -3,9 +3,9 @@
 namespace Algorithms {
 	export class BubbleSort extends BaseSort {
 		public execute(unsortedList: number[]): number[] {
-			//base.Execute(unsortedList);
+			super.execute(unsortedList);
 			let sortedList = super.copy(unsortedList);
-			//AddToIntermediateSorts(sortedList);
+			super.addToIntermediateSorts(sortedList);
 
 			let inversion: boolean;
 			do {
@@ -17,7 +17,7 @@ namespace Algorithms {
 						sortedList[i] = right;
 						sortedList[i + 1] = left;
 						inversion = true;
-						//AddToIntermediateSorts(sortedList);
+						super.addToIntermediateSorts(sortedList);
 					}
 				}
 			} while (inversion);
