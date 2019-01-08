@@ -12,7 +12,7 @@
 		}
 
 		protected addToIntermediateSorts(intermediateSort: number[]) {
-			this.intermediateSorts.push(intermediateSort);
+			this.intermediateSorts.push(this.copy(intermediateSort));
 		}
 
 		public execute(unsortedList: number[]): number[] {

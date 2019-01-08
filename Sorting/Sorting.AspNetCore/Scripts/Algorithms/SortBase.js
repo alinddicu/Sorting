@@ -9,7 +9,7 @@ var Algorithms;
             return newArray;
         }
         addToIntermediateSorts(intermediateSort) {
-            this.intermediateSorts.push(intermediateSort);
+            this.intermediateSorts.push(this.copy(intermediateSort));
         }
         execute(unsortedList) {
             this.intermediateSorts = [];
