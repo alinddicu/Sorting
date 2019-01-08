@@ -1,7 +1,7 @@
 /// <reference path="./SortBase.ts"/>
 var Algorithms;
 (function (Algorithms) {
-    class BubbleSort extends Algorithms.BaseSort {
+    class BubbleSort extends Algorithms.SortBase {
         execute(unsortedList) {
             super.execute(unsortedList);
             let sortedList = super.copy(unsortedList);

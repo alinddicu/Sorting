@@ -1,6 +1,6 @@
 var Algorithms;
 (function (Algorithms) {
-    class BaseSort {
+    class SortBase {
         copy(list) {
             let newArray = [];
             for (let i = 0; i < list.length; i++) {
@@ -19,6 +19,6 @@ var Algorithms;
             return this.intermediateSorts;
         }
     }
-    Algorithms.BaseSort = BaseSort;
+    Algorithms.SortBase = SortBase;
 })(Algorithms || (Algorithms = {}));
 //# sourceMappingURL=SortBase.js.map

@@ -4,17 +4,20 @@
 	<meta charset="utf-8"/>
 	<script src="scripts/Algorithms/SortBase.js"></script>
 	<script src="scripts/Algorithms/BubbleSort.js"></script>
+	<script src="scripts/Drawing/CanvasDrawer.js"></script>
 	<script src="scripts/app.js"></script>
 	<title></title>
 </head>
 <body>
 <div id="result"></div>
-<div id="results"></div>
+<div id="intermediateSorts" style="display: none"></div>
+<canvas id="canvas" height="100" width="100"></canvas>
 </body>
 </html>
 <script type="text/javascript">
-	var result = testSort();
-	document.getElementById('result').innerText = result.result;
-	document.getElementById('results').innerText = result.intermediateSorts;
+	var executeResult = executeSort();
+	document.getElementById('result').innerText = executeResult.result;
+	document.getElementById('intermediateSorts').innerText = executeResult.intermediateSorts;
 
+	drawSort(document.getElementById('canvas'));
 </script>

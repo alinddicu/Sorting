@@ -1,5 +1,5 @@
 ﻿namespace Algorithms {
-	export class BaseSort {
+	export class SortBase {
 		intermediateSorts: number[][];
 
 		public copy(list: number[]): number[] {

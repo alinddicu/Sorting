@@ -1,7 +1,7 @@
 ﻿/// <reference path="./SortBase.ts"/>
 
 namespace Algorithms {
-	export class BubbleSort extends BaseSort {
+	export class BubbleSort extends SortBase {
 		public execute(unsortedList: number[]): number[] {
 			super.execute(unsortedList);
 			let sortedList = super.copy(unsortedList);
