@@ -22,18 +22,39 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="scripts\Algorithms\BubbleSort.js" />
+    <Content Include="scripts\Algorithms\InsertionSort.js" />
+    <Content Include="scripts\Algorithms\SortBase.js" />
+    <Content Include="scripts\app.js" />
+    <Content Include="scripts\Drawing\CanvasDrawer.js" />
     <Content Include="styles\app.css" />
     <Content Include="gulpfile.js" />
     <Content Include="pages\index.html" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="scripts\Algorithms\BubbleSort.ts" />
+    <TypeScriptCompile Include="scripts\Algorithms\InsertionSort.ts" />
+    <TypeScriptCompile Include="scripts\Algorithms\SortBase.ts" />
     <TypeScriptCompile Include="scripts\app.ts" />
+    <TypeScriptCompile Include="scripts\Drawing\CanvasDrawer.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="package.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="scripts\Algorithms\BubbleSort.js.map" />
+    <Content Include="scripts\Algorithms\InsertionSort.js.map" />
+    <Content Include="scripts\Algorithms\SortBase.js.map" />
+    <Content Include="scripts\Drawing\CanvasDrawer.js.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="scripts\app.js.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="tsconfig.json" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>

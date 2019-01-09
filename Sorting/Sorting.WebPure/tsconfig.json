@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"noImplicitAny": true,
+		"noEmitOnError": true,
+		"sourceMap": true,
+		"target": "es6"
+	},
+	"files": [
+		"./scripts/app.ts",
+		"./scripts/Algorithms/SortBase.ts",
+		"./scripts/Algorithms/BubbleSort.ts",
+		"./scripts/Algorithms/InsertionSort.ts"
+	],
+	"compileOnSave": true
+}

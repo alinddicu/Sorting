@@ -1,27 +1,24 @@
 var Algorithms;
 (function (Algorithms) {
-    var SortBase = /** @class */ (function () {
-        function SortBase() {
-        }
-        SortBase.prototype.copy = function (list) {
-            var newArray = [];
-            for (var i = 0; i < list.length; i++) {
+    class SortBase {
+        copy(list) {
+            let newArray = [];
+            for (let i = 0; i < list.length; i++) {
                 newArray[i] = list[i];
             }
             return newArray;
-        };
-        SortBase.prototype.addToIntermediateSorts = function (intermediateSort) {
+        }
+        addToIntermediateSorts(intermediateSort) {
             this.intermediateSorts.push(this.copy(intermediateSort));
-        };
-        SortBase.prototype.execute = function (unsortedList) {
+        }
+        execute(unsortedList) {
             this.intermediateSorts = [];
             return unsortedList;
-        };
-        SortBase.prototype.getIntermediateSorts = function () {
+        }
+        getIntermediateSorts() {
             return this.intermediateSorts;
-        };
-        return SortBase;
-    }());
+        }
+    }
     Algorithms.SortBase = SortBase;
 })(Algorithms || (Algorithms = {}));
 //# sourceMappingURL=SortBase.js.map
