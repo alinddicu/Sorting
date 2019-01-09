@@ -4,6 +4,7 @@
 	<meta charset="utf-8"/>
 	<script src="scripts/Algorithms/SortBase.js"></script>
 	<script src="scripts/Algorithms/BubbleSort.js"></script>
+	<script src="scripts/Algorithms/InsertionSort.js"></script>
 	<script src="scripts/Drawing/CanvasDrawer.js"></script>
 	<script src="scripts/app.js"></script>
 	<title></title>
@@ -11,7 +12,11 @@
 <body>
 <div id="result"></div>
 <div id="intermediateSorts" style="display: none"></div>
-<canvas id="canvas" height="100" width="100"></canvas>
+
+<canvas id="bubbleCanvas" height="100" width="100"></canvas>
+<br/>
+<canvas id="insertionCanvas" height="100" width="100"></canvas>
+
 </body>
 </html>
 <script type="text/javascript">
@@ -19,5 +24,6 @@
 	document.getElementById('result').innerText = executeResult.result;
 	document.getElementById('intermediateSorts').innerText = executeResult.intermediateSorts;
 
-	drawSort(document.getElementById('canvas'));
+	drawSort(bubbleSort, document.getElementById('bubbleCanvas'));
+	drawSort(insertionSort, document.getElementById('insertionCanvas'));
 </script>

@@ -27,7 +27,7 @@ var Drawing;
                 if (i >= intermediateSorts.length) {
                     clearInterval(refreshId);
                 }
-            }, 0);
+            }, 200);
         }
     }
     Drawing.CanvasDrawer = CanvasDrawer;
