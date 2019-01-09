@@ -242,3 +242,4 @@ ModelManifest.xml
 .fake/
 /Sorting/Sorting.AspNetCore/wwwroot
 /Sorting/Sorting.WebPure/wwwroot/scripts
+/Sorting/Sorting.WebPure/wwwroot

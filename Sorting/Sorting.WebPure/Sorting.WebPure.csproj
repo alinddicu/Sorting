@@ -24,20 +24,13 @@
   <ItemGroup>
     <Content Include="styles\app.css" />
     <Content Include="gulpfile.js" />
-    <Content Include="index.html" />
-    <Content Include="web.config" />
+    <Content Include="pages\index.html" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="scripts\app.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="package.json" />
-    <None Include="web.Debug.config">
-      <DependentUpon>web.config</DependentUpon>
-    </None>
-    <None Include="web.Release.config">
-      <DependentUpon>web.config</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\" />
