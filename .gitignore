@@ -241,3 +241,4 @@ ModelManifest.xml
 # FAKE - F# Make
 .fake/
 /Sorting/Sorting.AspNetCore/wwwroot
+/Sorting/Sorting.WebPure/wwwroot/scripts
