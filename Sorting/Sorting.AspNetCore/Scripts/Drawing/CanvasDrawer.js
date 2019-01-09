@@ -18,16 +18,16 @@ var Drawing;
                 //console.log("intermediateSort: " + intermediateSort);
                 for (let x = 0; x < intermediateSort.length; x++) {
                     const y = intermediateSort[x];
-                    ctx.moveTo(x * 10, 0);
+                    ctx.moveTo(1 + x * 10, canvas.height);
                     //console.log(`ctx.moveTo(${x}, 0)`);
-                    ctx.lineTo(x * 10, y * 10);
+                    ctx.lineTo(1 + x * 10, canvas.height - y * 10);
                     //console.log(`ctx.lineTo(${x}, ${y})`);
                     ctx.stroke();
                 }
                 if (i >= intermediateSorts.length) {
                     clearInterval(refreshId);
                 }
-            }, 200);
+            }, 0);
         }
     }
     Drawing.CanvasDrawer = CanvasDrawer;
