@@ -2,9 +2,9 @@
 	import SortBase = Algorithms.SortBase;
 
 	export class SingleCanvasDrawer {
-		sorting: SortBase;
-		document: Document;
-		drawParams: IDrawingParams;
+		private sorting: SortBase;
+		private document: Document;
+		private drawParams: IDrawingParams;
 
 		constructor(sorting: SortBase, document: Document) {
 			this.sorting = sorting;
@@ -55,7 +55,7 @@
 					ctx.stroke();
 				}
 
-				if (i >= intermediateSorts.length) {
+				if (i === intermediateSorts.length) {
 					clearInterval(refreshId);
 				}
 			}, drawParams.delay);

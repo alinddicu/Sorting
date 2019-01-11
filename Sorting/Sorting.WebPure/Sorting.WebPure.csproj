@@ -30,6 +30,7 @@
     <TypeScriptCompile Include="scripts\Algorithms\BubbleSort.ts" />
     <TypeScriptCompile Include="scripts\Algorithms\HeapSort.ts" />
     <TypeScriptCompile Include="scripts\Algorithms\InsertionSort.ts" />
+    <TypeScriptCompile Include="scripts\Algorithms\MergeSort.ts" />
     <TypeScriptCompile Include="scripts\Algorithms\SortBase.ts" />
     <TypeScriptCompile Include="scripts\app.ts" />
     <TypeScriptCompile Include="scripts\Drawing\IDrawingParams.ts" />

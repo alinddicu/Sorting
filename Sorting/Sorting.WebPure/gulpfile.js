@@ -36,7 +36,7 @@ gulp.task('dev-bundle', function () {
 	// wait for all files to build before bundling
 	setTimeout(function() {
 		moveAll();
-	}, 500);
+	}, 200);
 });
 
 gulp.task('dev-watch-bundle', function () {

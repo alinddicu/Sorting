@@ -55,12 +55,12 @@
 				if (i < iMiddle && (j >= iEnd || a[i] <= a[j]))
 				{
 					b[k] = a[i];
-					i = i + 1;
+					i++;
 				}
 				else
 				{
 					b[k] = a[j];
-					j = j + 1;
+					j++;
 				}
 			}
 

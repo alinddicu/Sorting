@@ -1,11 +1,11 @@
 ﻿namespace Algorithms {
 	export class SortBase {
-		intermediateSorts: number[][];
+		private intermediateSorts: number[][];
 
-		public copy(list: number[]): number[] {
+		protected copy(array: number[]): number[] {
 			const newArray: number[] = [];
-			for (let i = 0; i < list.length; i++) {
-				newArray[i] = list[i];
+			for (let i = 0; i < array.length; i++) {
+				newArray[i] = array[i];
 			}
 
 			return newArray;

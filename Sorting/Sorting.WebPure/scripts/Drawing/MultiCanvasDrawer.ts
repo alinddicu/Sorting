@@ -2,9 +2,9 @@
 	import SortBase = Algorithms.SortBase;
 
 	export class MultiCanvasDrawer {
-		document: Document;
-		sortings: SortBase[];
-		drawParams: IDrawingParams;
+		private document: Document;
+		private sortings: SortBase[];
+		private drawParams: IDrawingParams;
 
 		constructor(document: Document, sortings: SortBase[], drawParams: IDrawingParams) {
 			this.document = document;
