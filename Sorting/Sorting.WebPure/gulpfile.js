@@ -1,4 +1,4 @@
-﻿/// <binding AfterBuild='default' Clean='clean' ProjectOpened='watch' />
+﻿/// <binding AfterBuild='default-bundle' Clean='clean-bundle' ProjectOpened='watch-bundle' />
 /*
 This file is the main entry point for defining Gulp tasks and using Gulp plugins.
 Click here to learn more. http://go.microsoft.com/fwlink/?LinkId=518007
@@ -21,21 +21,24 @@ var allPaths = []
 	.concat(paths.pages)
 	.concat(paths.styles);
 
-gulp.task('clean', function () {
-	return	del(['wwwroot/*']);
+gulp.task('clean-bundle', function () {
+	return	del(['built-dev/*']);
 });
 
 function moveAll() {
-	gulp.src(paths.typescript).pipe(gulp.dest('wwwroot/scripts'));
-	gulp.src(paths.transpiled).pipe(gulp.dest('wwwroot/scripts'));
-	gulp.src(paths.pages).pipe(gulp.dest('wwwroot'));
-	gulp.src(paths.styles).pipe(gulp.dest('wwwroot/styles'));
+	gulp.src(paths.typescript).pipe(gulp.dest('built-dev/scripts'));
+	gulp.src(paths.transpiled).pipe(gulp.dest('built-dev/scripts'));
+	gulp.src(paths.pages).pipe(gulp.dest('built-dev'));
+	gulp.src(paths.styles).pipe(gulp.dest('built-dev'));
 }
 
-gulp.task('default', function () {
-	moveAll();
+gulp.task('default-bundle', function () {
+	// wait for all files to build before bundling
+	setTimeout(function() {
+		moveAll();
+	}, 500);
 });
 
-gulp.task('watch', function () {
-    gulp.watch(allPaths, ['clean', 'default']);
+gulp.task('watch-bundle', function () {
+    gulp.watch(allPaths, ['clean-bundle', 'default-bundle']);
 });

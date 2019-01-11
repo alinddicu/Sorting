@@ -3,6 +3,5 @@
 		ratio: number;
 		delay: number;
 		penColor: string;
-		backgroundColor: string;
 	}
 }

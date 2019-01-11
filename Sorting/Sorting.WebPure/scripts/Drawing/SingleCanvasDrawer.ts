@@ -19,6 +19,7 @@
 			canvas.id = divId;
 			canvas.height = sortedNumbersCount * ratio;
 			canvas.width = sortedNumbersCount * ratio;
+			canvas.style.backgroundColor = "black";
 			div.appendChild<HTMLCanvasElement>(canvas);
 
 			return canvas;
@@ -28,7 +29,7 @@
 			const context = canvas.getContext("2d") as CanvasRenderingContext2D;
 			context.globalCompositeOperation = "source-over";
 			context.lineWidth = 2;
-			context.strokeStyle = "#FF0000";
+			context.strokeStyle = this.drawParams.penColor;
 			context.strokeRect(0, 0, canvas.width, canvas.height);
 		}
 
@@ -40,12 +41,11 @@
 			const sortedNumbersCount = intermediateSorts[0].length;
 			const canvas = this.createCanvas(sortedNumbersCount);
 			const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
-			ctx.strokeStyle = "#FF0000";
+			ctx.strokeStyle = this.drawParams.penColor;
 
 			let i = 0;
 			const refreshId = setInterval(() => {
 				ctx.clearRect(0, 0, canvas.width, canvas.height);
-				//this.drawCanvasBorder(canvas);
 				ctx.beginPath();
 				const intermediateSort = intermediateSorts[i++];
 				for (let x = 0; x < intermediateSort.length; x++) {

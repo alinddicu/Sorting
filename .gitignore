@@ -242,3 +242,4 @@ ModelManifest.xml
 .fake/
 /Sorting/Sorting.WebPure/wwwroot
 /Sorting/Sorting.WebPure/transpiled
+/Sorting/Sorting.WebPure/built-dev
