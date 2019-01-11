@@ -36,7 +36,7 @@
 		public draw(drawParams: IDrawingParams): void {
 
 			this.drawParams = drawParams;
-			const xDrawRatio = this.drawParams.ratio;
+			const ratio = this.drawParams.ratio;
 			const intermediateSorts = this.sorting.getIntermediateSorts();
 			const sortedNumbersCount = intermediateSorts[0].length;
 			const canvas = this.createCanvas(sortedNumbersCount);
@@ -50,8 +50,8 @@
 				const intermediateSort = intermediateSorts[i++];
 				for (let x = 0; x < intermediateSort.length; x++) {
 					const y = intermediateSort[x];
-					ctx.moveTo(1 + x * xDrawRatio, canvas.height);
-					ctx.lineTo(1 + x * xDrawRatio, canvas.height - y * xDrawRatio);
+					ctx.moveTo(5 + x * ratio, canvas.height);
+					ctx.lineTo(5 + x * ratio, canvas.height - y * ratio);
 					ctx.stroke();
 				}
 
