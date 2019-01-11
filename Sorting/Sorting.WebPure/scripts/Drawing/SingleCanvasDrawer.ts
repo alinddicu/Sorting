@@ -22,6 +22,14 @@
 			return canvas;
 		}
 
+		private drawCanvasBorder(canvas: HTMLCanvasElement): void {
+			const context = canvas.getContext("2d") as CanvasRenderingContext2D;
+			context.globalCompositeOperation = "source-over";
+			context.lineWidth = 2;
+			context.strokeStyle = "#FF0000";
+			context.strokeRect(0, 0, canvas.width, canvas.height);
+		}
+
 		public draw(xDrawRatio: number, drawDelay: number): void {
 
 			const intermediateSorts = this.sorting.getIntermediateSorts();
@@ -33,6 +41,7 @@
 			let i = 0;
 			const refreshId = setInterval(() => {
 				ctx.clearRect(0, 0, canvas.width, canvas.height);
+				//this.drawCanvasBorder(canvas);
 				ctx.beginPath();
 				const intermediateSort = intermediateSorts[i++];
 				for (let x = 0; x < intermediateSort.length; x++) {
