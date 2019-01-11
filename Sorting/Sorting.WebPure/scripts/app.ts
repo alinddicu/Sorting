@@ -26,5 +26,5 @@ function draw() {
 		new Algorithms.BubbleSort(),
 		new Algorithms.InsertionSort()
 	];
-	new Drawing.MultiCanvasDrawer(document, sortings, 10).Draw(arrayToSort);	
+	new Drawing.MultiCanvasDrawer(document, sortings, 10, 50).draw(arrayToSort);	
 }
