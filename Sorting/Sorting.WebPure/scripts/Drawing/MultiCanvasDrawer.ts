@@ -4,20 +4,18 @@
 	export class MultiCanvasDrawer {
 		document: Document;
 		sortings: SortBase[];
-		xDrawRatio: number;
-		drawDelay: number;
+		drawParams: IDrawingParams;
 
-		constructor(document: Document, sortings: SortBase[], xDrawRation: number, drawDelay: number) {
+		constructor(document: Document, sortings: SortBase[], drawParams: IDrawingParams) {
 			this.document = document;
 			this.sortings = sortings;
-			this.xDrawRatio = xDrawRation;
-			this.drawDelay = drawDelay;
+			this.drawParams = drawParams;
 		}
 
 		public draw(arrayToSort: number[]): void {
 			for (let sorting of this.sortings) {
 				sorting.execute(arrayToSort);
-				new SingleCanvasDrawer(sorting, this.document).draw(this.xDrawRatio, this.drawDelay);
+				new SingleCanvasDrawer(sorting, this.document).draw(this.drawParams);
 			}
 		}
 	}

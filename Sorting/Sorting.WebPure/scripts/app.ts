@@ -21,10 +21,18 @@ const arrayToSort = [28,4,12,9,25,5,7,15,30,23,2,10,14,13,6,21,18,1,19,17,24,29,
 //	const canvasDrawer = new Drawing.SingleCanvasDrawer(sort, document);
 //	canvasDrawer.Draw();
 //}
+
+const drawParams = {
+	ratio: 10,
+	delay: 50,
+	penColor: "#FF0000",
+	backgroundColor: "#FFFFFF"
+};
+
 function draw() {
 	const sortings: Algorithms.SortBase[] = [
 		new Algorithms.BubbleSort(),
 		new Algorithms.InsertionSort()
 	];
-	new Drawing.MultiCanvasDrawer(document, sortings, 10, 50).draw(arrayToSort);	
+	new Drawing.MultiCanvasDrawer(document, sortings, drawParams).draw(arrayToSort);
 }

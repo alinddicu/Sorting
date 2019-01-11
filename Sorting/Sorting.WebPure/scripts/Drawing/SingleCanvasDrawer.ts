@@ -4,19 +4,21 @@
 	export class SingleCanvasDrawer {
 		sorting: SortBase;
 		document: Document;
+		drawParams: IDrawingParams;
 
 		constructor(sorting: SortBase, document: Document) {
 			this.sorting = sorting;
 			this.document = document;
 		}
 
-		private createCanvas(xDrawRation: number, sortedNumbersCount: number): HTMLCanvasElement {
+		private createCanvas(sortedNumbersCount: number): HTMLCanvasElement {
+			const ratio = this.drawParams.ratio;
 			const divId = this.sorting.constructor.name.toLowerCase();
 			const div = document.getElementById(divId) as HTMLDivElement;
 			const canvas = document.createElement("canvas") as HTMLCanvasElement;
 			canvas.id = divId;
-			canvas.height = sortedNumbersCount * xDrawRation;
-			canvas.width = sortedNumbersCount * xDrawRation;
+			canvas.height = sortedNumbersCount * ratio;
+			canvas.width = sortedNumbersCount * ratio;
 			div.appendChild<HTMLCanvasElement>(canvas);
 
 			return canvas;
@@ -30,11 +32,13 @@
 			context.strokeRect(0, 0, canvas.width, canvas.height);
 		}
 
-		public draw(xDrawRatio: number, drawDelay: number): void {
+		public draw(drawParams: IDrawingParams): void {
 
+			this.drawParams = drawParams;
+			const xDrawRatio = this.drawParams.ratio;
 			const intermediateSorts = this.sorting.getIntermediateSorts();
 			const sortedNumbersCount = intermediateSorts[0].length;
-			const canvas = this.createCanvas(xDrawRatio, sortedNumbersCount);
+			const canvas = this.createCanvas(sortedNumbersCount);
 			const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
 			ctx.strokeStyle = "#FF0000";
 
@@ -54,7 +58,7 @@
 				if (i >= intermediateSorts.length) {
 					clearInterval(refreshId);
 				}
-			}, drawDelay);
+			}, drawParams.delay);
 		}
 	}
 }
