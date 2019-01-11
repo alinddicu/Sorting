@@ -8,7 +8,8 @@ var gulp = require('gulp');
 var del = require('del');
 
 var paths = {
-	scripts: ['scripts/**/*.js', 'scripts/**/*.ts', 'scripts/**/*.map'],
+	transpiled: ['transpiled/**/*.js', 'transpiled/**/*.map'],
+	typescript: ['scripts/**/*.ts'],
 	pages:['pages/**/*.html']
 };
 
@@ -17,6 +18,7 @@ gulp.task('clean', function () {
 });
 
 gulp.task('default', function () {
-	gulp.src(paths.scripts).pipe(gulp.dest('wwwroot/scripts'));
+	gulp.src(paths.typescript).pipe(gulp.dest('wwwroot/scripts'));
+	gulp.src(paths.transpiled).pipe(gulp.dest('wwwroot/scripts'));
 	gulp.src(paths.pages).pipe(gulp.dest('wwwroot'));
 });
