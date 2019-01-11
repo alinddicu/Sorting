@@ -1,4 +1,3 @@
-/// <reference path="./SortBase.ts"/>
 var Algorithms;
 (function (Algorithms) {
     class InsertionSort extends Algorithms.SortBase {

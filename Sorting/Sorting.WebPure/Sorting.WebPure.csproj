@@ -26,7 +26,6 @@
     <Content Include="scripts\Algorithms\InsertionSort.js" />
     <Content Include="scripts\Algorithms\SortBase.js" />
     <Content Include="scripts\app.js" />
-    <Content Include="scripts\Drawing\CanvasDrawer.js" />
     <Content Include="styles\app.css" />
     <Content Include="gulpfile.js" />
     <Content Include="pages\index.html" />
@@ -36,7 +35,8 @@
     <TypeScriptCompile Include="scripts\Algorithms\InsertionSort.ts" />
     <TypeScriptCompile Include="scripts\Algorithms\SortBase.ts" />
     <TypeScriptCompile Include="scripts\app.ts" />
-    <TypeScriptCompile Include="scripts\Drawing\CanvasDrawer.ts" />
+    <TypeScriptCompile Include="scripts\Drawing\MultiCanvasDrawer.ts" />
+    <TypeScriptCompile Include="scripts\Drawing\SingleCanvasDrawer.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="package.json" />
@@ -48,7 +48,6 @@
     <Content Include="scripts\Algorithms\BubbleSort.js.map" />
     <Content Include="scripts\Algorithms\InsertionSort.js.map" />
     <Content Include="scripts\Algorithms\SortBase.js.map" />
-    <Content Include="scripts\Drawing\CanvasDrawer.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="scripts\app.js.map" />
@@ -72,7 +71,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>14189</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:14189/</IISUrl>
+          <IISUrl>http://localhost:14189/index.html</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

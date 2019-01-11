@@ -5,25 +5,19 @@
 	<script src="scripts/Algorithms/SortBase.js"></script>
 	<script src="scripts/Algorithms/BubbleSort.js"></script>
 	<script src="scripts/Algorithms/InsertionSort.js"></script>
-	<script src="scripts/Drawing/CanvasDrawer.js"></script>
+	<script src="scripts/Drawing/SingleCanvasDrawer.js"></script>
+	<script src="scripts/Drawing/MultiCanvasDrawer.js"></script>
 	<script src="scripts/app.js"></script>
 	<title></title>
 </head>
 <body>
-<div id="result"></div>
-<div id="intermediateSorts" style="display: none"></div>
 
-<canvas id="bubbleCanvas" height="100" width="100"></canvas>
+<div id="bubblesort"></div>
 <br/>
-<canvas id="insertionCanvas" height="100" width="100"></canvas>
+<div id="insertionsort"></div>
 
 </body>
 </html>
 <script type="text/javascript">
-	var executeResult = executeSort();
-	document.getElementById('result').innerText = executeResult.result;
-	document.getElementById('intermediateSorts').innerText = executeResult.intermediateSorts;
-
-	drawSort(bubbleSort, document.getElementById('bubbleCanvas'));
-	drawSort(insertionSort, document.getElementById('insertionCanvas'));
+	draw();
 </script>

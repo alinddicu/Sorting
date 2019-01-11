@@ -1,6 +1,4 @@
-﻿/// <reference path="./SortBase.ts"/>
-
-namespace Algorithms {
+﻿namespace Algorithms {
 	export class BubbleSort extends SortBase {
 		public execute(unsortedList: number[]): number[] {
 			super.execute(unsortedList);

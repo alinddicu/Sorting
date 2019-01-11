@@ -1,14 +1,22 @@
-/// <reference path="../Algorithms/SortBase.ts"/>
-/// <reference path="../Algorithms/BubbleSort.ts"/>
 var Drawing;
 (function (Drawing) {
-    class CanvasDrawer {
-        constructor(sorting) {
+    class SingleCanvasDrawer {
+        constructor(sorting, document) {
             this.sorting = sorting;
+            this.document = document;
         }
-        Draw(canvas) {
+        Draw(xDrawRation) {
+            const divId = this.sorting.constructor.name.toLowerCase();
             const intermediateSorts = this.sorting.getIntermediateSorts();
-            var ctx = canvas.getContext("2d");
+            const sortedNumbersCount = intermediateSorts[0].length;
+            const div = document.getElementById(divId);
+            const canvas = document.createElement("canvas");
+            canvas.id = divId;
+            canvas.height = sortedNumbersCount * xDrawRation;
+            canvas.width = sortedNumbersCount * xDrawRation;
+            div.appendChild(canvas);
+            //const canvas = document.getElementById(divId) as HTMLCanvasElement;
+            const ctx = canvas.getContext("2d");
             ctx.strokeStyle = "#FF0000";
             let i = 0;
             let refreshId = setInterval(() => {
@@ -18,9 +26,9 @@ var Drawing;
                 //console.log("intermediateSort: " + intermediateSort);
                 for (let x = 0; x < intermediateSort.length; x++) {
                     const y = intermediateSort[x];
-                    ctx.moveTo(1 + x * 10, canvas.height);
+                    ctx.moveTo(1 + x * xDrawRation, canvas.height);
                     //console.log(`ctx.moveTo(${x}, 0)`);
-                    ctx.lineTo(1 + x * 10, canvas.height - y * 10);
+                    ctx.lineTo(1 + x * xDrawRation, canvas.height - y * xDrawRation);
                     //console.log(`ctx.lineTo(${x}, ${y})`);
                     ctx.stroke();
                 }
@@ -30,6 +38,6 @@ var Drawing;
             }, 200);
         }
     }
-    Drawing.CanvasDrawer = CanvasDrawer;
+    Drawing.SingleCanvasDrawer = SingleCanvasDrawer;
 })(Drawing || (Drawing = {}));
-//# sourceMappingURL=CanvasDrawer.js.map
+//# sourceMappingURL=SingleCanvasDrawer.js.map

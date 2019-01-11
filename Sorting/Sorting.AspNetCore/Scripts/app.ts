@@ -23,6 +23,6 @@ function executeSort(): any {return {
 }
 
 function drawSort(sort: Algorithms.SortBase, canvas: any): void {
-	const canvasDrawer = new Drawing.CanvasDrawer(sort);
+	const canvasDrawer = new Drawing.SingleCanvasDrawer(sort);
 	canvasDrawer.Draw(canvas);
 }

@@ -20,7 +20,7 @@ namespace Drawing {
 		getContext(drawingContext: string): ICanvasContext;
 	}
 
-	export class CanvasDrawer {
+	export class SingleCanvasDrawer {
 		sorting: SortBase;
 		constructor(sorting: SortBase) {
 			this.sorting = sorting;

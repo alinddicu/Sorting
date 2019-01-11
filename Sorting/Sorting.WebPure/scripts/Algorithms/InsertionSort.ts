@@ -1,6 +1,4 @@
-﻿/// <reference path="./SortBase.ts"/>
-
-namespace Algorithms {
+﻿namespace Algorithms {
 	export class InsertionSort extends SortBase {
 		public execute(unsortedList: number[]): number[] {
 			super.execute(unsortedList);
