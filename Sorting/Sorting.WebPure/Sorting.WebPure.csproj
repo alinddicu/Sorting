@@ -39,8 +39,8 @@
     <Content Include="package.json" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="built-dev\" />
-    <Folder Include="built-prod\" />
+    <Folder Include="bundle-dev\" />
+    <Folder Include="bundle-prod\" />
     <Folder Include="transpiled\" />
   </ItemGroup>
   <ItemGroup>
