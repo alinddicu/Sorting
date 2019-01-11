@@ -3,7 +3,7 @@
 		intermediateSorts: number[][];
 
 		public copy(list: number[]): number[] {
-			let newArray: number[] = [];
+			const newArray: number[] = [];
 			for (let i = 0; i < list.length; i++) {
 				newArray[i] = list[i];
 			}

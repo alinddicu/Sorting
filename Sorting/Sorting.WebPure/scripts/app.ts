@@ -14,7 +14,8 @@ const drawParams = {
 function draw() {
 	const sortings: Algorithms.SortBase[] = [
 		new Algorithms.BubbleSort(),
-		new Algorithms.InsertionSort()
+		new Algorithms.InsertionSort(),
+		new Algorithms.HeapSort()
 	];
 	new Drawing.MultiCanvasDrawer(document, sortings, drawParams).draw(arrayToSort);
 }
