@@ -39,6 +39,7 @@
     <TypeScriptCompile Include="scripts\Drawing\MultiCanvasDrawer.ts" />
     <TypeScriptCompile Include="scripts\Drawing\SingleCanvasDrawer.ts" />
     <TypeScriptCompile Include="scripts\Tools\RandomArrayGenerator.ts" />
+    <TypeScriptCompile Include="scripts\Tools\RankingSystem.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="package.json" />
