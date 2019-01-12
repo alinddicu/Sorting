@@ -9,7 +9,7 @@
 			
 			this.topDownMergeSort(this.arrayCopy, [], this.arrayCopy.length);
 
-			//StopWatch();
+			this.stopWatch();
 			return this.arrayCopy;
 		}
 

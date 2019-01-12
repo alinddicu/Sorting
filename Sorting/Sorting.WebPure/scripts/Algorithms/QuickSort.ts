@@ -8,7 +8,7 @@
 
 			this.quicksort(this.arrayCopy, 0, this.arrayCopy.length - 1);
 
-			//StopWatch();
+			this.stopWatch();
 			return this.arrayCopy;
 		}
 

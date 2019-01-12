@@ -10,7 +10,7 @@
 
 		this.sort(this.arrayCopy);
 
-		//StopWatch();
+		this.stopWatch();
 		return this.arrayCopy;
 	}
 

@@ -37,10 +37,12 @@
 			context.strokeRect(0, 0, canvas.width, canvas.height);
 		}
 
-		private writeSortName(canvasCtx: CanvasRenderingContext2D): void {
+		private writeSortingText(canvasCtx: CanvasRenderingContext2D): void {
 			canvasCtx.font = `${this.drawParams.fontSize}px Times New Roman`;
-			const sort = this.getDivId().split("sort")[0];
-			const text: string = sort[0].toUpperCase() + sort.substr(1).toLowerCase()  + " Sort";
+			const sorting = this.getDivId().split("sort")[0];
+			const sortingFormatted = sorting[0].toUpperCase() + sorting.substr(1).toLowerCase();
+			const duration = this.sorting.getDuration();
+			const text = `${sortingFormatted} Sort (${duration}ms)`;
 			canvasCtx.strokeText(text, 10, 20);
 		}
 
@@ -65,7 +67,7 @@
 					canvasCtx.stroke();
 				}
 
-				this.writeSortName(canvasCtx);
+				this.writeSortingText(canvasCtx);
 				if (i === intermediateSorts.length) {
 					clearInterval(refreshId);
 				}

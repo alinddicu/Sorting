@@ -14,7 +14,7 @@
 				this.addToIntermediateSorts(sortedList);
 			}
 
-			//StopWatch();
+			this.stopWatch();
 			return sortedList;
 		}
 

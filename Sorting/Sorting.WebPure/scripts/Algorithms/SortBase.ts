@@ -1,6 +1,8 @@
 ﻿namespace Algorithms {
 	export class SortBase {
 		private intermediateSorts: number[][];
+		private start: number;
+		private end: number;
 
 		protected copy(array: number[]): number[] {
 			const newArray: number[] = [];
@@ -16,12 +18,21 @@
 		}
 
 		public execute(unsortedList: number[]): number[] {
+			this.start = new Date().getTime();
 			this.intermediateSorts = [];
 			return unsortedList;
 		}
 
 		public getIntermediateSorts(): number[][] {
 			return this.intermediateSorts;
+		}
+
+		protected stopWatch(): void {
+			this.end = new Date().getTime();
+		}
+
+		public getDuration(): number {
+			return this.end - this.start;
 		}
 	}
 }

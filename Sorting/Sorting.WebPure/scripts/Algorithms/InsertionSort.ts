@@ -29,7 +29,7 @@
                 }
             }
 
-			//StopWatch();
+			this.stopWatch();
 			return sortedList;
 		}
 	}

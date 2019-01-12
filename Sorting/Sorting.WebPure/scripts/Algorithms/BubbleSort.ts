@@ -20,7 +20,7 @@
 				}
 			} while (inversion);
 
-			// stopWatch();
+			this.stopWatch();
 			return sortedList;
 		}
 	}
