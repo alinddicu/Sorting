@@ -1,8 +1,9 @@
 ﻿const drawParams = {
-	ratio: 10,
+	step: 10,
 	delay: 50,
 	penColor: "lime",
-	backgroundColor: "black"
+	backgroundColor: "black",
+	fontSize: 16
 };
 
 function draw() {

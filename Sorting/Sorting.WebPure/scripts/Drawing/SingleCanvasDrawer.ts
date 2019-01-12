@@ -16,7 +16,7 @@
 		}
 
 		private createCanvas(sortedNumbersCount: number): HTMLCanvasElement {
-			const ratio = this.drawParams.ratio;
+			const ratio = this.drawParams.step;
 			const divId = this.getDivId();
 			const div = document.getElementById(divId) as HTMLDivElement;
 			const canvas = document.createElement("canvas") as HTMLCanvasElement;
@@ -38,16 +38,15 @@
 		}
 
 		private writeSortName(canvasCtx: CanvasRenderingContext2D): void {
-			canvasCtx.font = "16px Times New Roman";
-			let sort = this.getDivId().split("sort")[0];
+			canvasCtx.font = `${this.drawParams.fontSize}px Times New Roman`;
+			const sort = this.getDivId().split("sort")[0];
 			const text: string = sort[0].toUpperCase() + sort.substr(1).toLowerCase()  + " Sort";
 			canvasCtx.strokeText(text, 10, 20);
 		}
 
 		public draw(drawParams: IDrawingParams): void {
-
 			this.drawParams = drawParams;
-			const ratio = this.drawParams.ratio;
+			const step = this.drawParams.step;
 			const intermediateSorts = this.sorting.getIntermediateSorts();
 			const sortedNumbersCount = intermediateSorts[0].length;
 			const canvas = this.createCanvas(sortedNumbersCount);
@@ -61,8 +60,8 @@
 				const intermediateSort = intermediateSorts[i++];
 				for (let x = 0; x < intermediateSort.length; x++) {
 					const y = intermediateSort[x];
-					canvasCtx.moveTo(5 + x * ratio, canvas.height);
-					canvasCtx.lineTo(5 + x * ratio, canvas.height - y * ratio);
+					canvasCtx.moveTo(5 + x * step, canvas.height);
+					canvasCtx.lineTo(5 + x * step, canvas.height - y * step);
 					canvasCtx.stroke();
 				}
 

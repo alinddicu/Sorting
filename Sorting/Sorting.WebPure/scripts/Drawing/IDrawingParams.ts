@@ -1,8 +1,9 @@
 ﻿namespace Drawing {
 	export interface IDrawingParams {
-		ratio: number;
+		step: number;
 		delay: number;
 		penColor: string;
 		backgroundColor: string;
+		fontSize: number;
 	}
 }
