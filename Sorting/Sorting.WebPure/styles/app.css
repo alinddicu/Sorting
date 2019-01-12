@@ -7,3 +7,31 @@
 	display: inline-block;
 	margin: 1px;
 }
+
+input[type=number], input[type=text], input[type=button] {
+	width: 75px;
+	margin: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	border: 1px dotted;
+	border-radius: 5px;
+	-webkit-appearance: none;
+	text-align: center;
+}
+
+div#params {
+	display: none;
+}
+
+br.paramsSpacer {
+	display: none;
+}
+
+div#showHideParams-container {
+	display: inline-block;
+}
+
+label {
+	font-weight: bold;
+}
