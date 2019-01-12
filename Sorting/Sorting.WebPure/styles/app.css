@@ -1,9 +1,9 @@
-﻿.canvas {
+﻿.canvas-container {
 	border-style: solid;
 	border-width: 1px;
 	border-color: black;
 	border-radius: 5px;
-	padding: 3px 3px 1px 3px;
+	padding: 3px 3px 0 3px;
 	display: inline-block;
-	margin: 2px;
+	margin: 1px;
 }

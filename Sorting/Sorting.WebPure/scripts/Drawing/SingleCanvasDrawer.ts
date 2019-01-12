@@ -18,13 +18,20 @@
 		private createCanvas(sortedNumbersCount: number): HTMLCanvasElement {
 			const ratio = this.drawParams.step;
 			const divId = this.getDivId();
-			const div = document.getElementById(divId) as HTMLDivElement;
-			const canvas = document.createElement("canvas") as HTMLCanvasElement;
-			canvas.id = divId;
+			const canvasId = divId + "Canvas";
+			let canvas = document.getElementById(canvasId) as HTMLCanvasElement;
+			if (!canvas) {
+				canvas = document.createElement("canvas") as HTMLCanvasElement;
+				const div = document.getElementById(divId) as HTMLDivElement;
+				while (div.firstChild) {
+					div.removeChild(div.firstChild);
+				}
+				div.appendChild<HTMLCanvasElement>(canvas);
+			}
+
 			canvas.height = sortedNumbersCount * ratio;
 			canvas.width = sortedNumbersCount * ratio;
 			canvas.style.backgroundColor = this.drawParams.backgroundColor;
-			div.appendChild<HTMLCanvasElement>(canvas);
 
 			return canvas;
 		}
