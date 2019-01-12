@@ -19,7 +19,7 @@
 			canvas.id = divId;
 			canvas.height = sortedNumbersCount * ratio;
 			canvas.width = sortedNumbersCount * ratio;
-			canvas.style.backgroundColor = "black";
+			canvas.style.backgroundColor = this.drawParams.backgroundColor;
 			div.appendChild<HTMLCanvasElement>(canvas);
 
 			return canvas;

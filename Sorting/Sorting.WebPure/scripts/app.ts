@@ -9,17 +9,10 @@ const arrayToSort = [32, 28, 4, 12, 9, 25, 5, 7, 15, 30, 33, 23, 2, 10, 14, 13, 
 const drawParams = {
 	ratio: 10,
 	delay: 50,
-	penColor: "lime"
+	penColor: "lime",
+	backgroundColor: "black"
 };
 
 function draw() {
-	const sortings: Algorithms.SortBase[] = [
-		new Algorithms.BubbleSort(),
-		new Algorithms.InsertionSort(),
-		new Algorithms.HeapSort(),
-		new Algorithms.MergeSort(),
-		new Algorithms.QuickSort(),
-		new Algorithms.SelectionSort()
-	];
-	new Drawing.MultiCanvasDrawer(document, sortings, drawParams).draw(arrayToSort);
+	new Drawing.MultiCanvasDrawer(document, drawParams).draw(arrayToSort);
 }

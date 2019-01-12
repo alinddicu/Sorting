@@ -6,9 +6,16 @@
 		private sortings: SortBase[];
 		private drawParams: IDrawingParams;
 
-		constructor(document: Document, sortings: SortBase[], drawParams: IDrawingParams) {
+		constructor(document: Document, drawParams: IDrawingParams) {
 			this.document = document;
-			this.sortings = sortings;
+			this.sortings = [
+				new Algorithms.BubbleSort(),
+				new Algorithms.InsertionSort(),
+				new Algorithms.HeapSort(),
+				new Algorithms.MergeSort(),
+				new Algorithms.QuickSort(),
+				new Algorithms.SelectionSort()
+			];
 			this.drawParams = drawParams;
 		}
 
