@@ -38,6 +38,7 @@
     <TypeScriptCompile Include="scripts\Drawing\IDrawingParams.ts" />
     <TypeScriptCompile Include="scripts\Drawing\MultiCanvasDrawer.ts" />
     <TypeScriptCompile Include="scripts\Drawing\SingleCanvasDrawer.ts" />
+    <TypeScriptCompile Include="scripts\Tools\RandomArrayGenerator.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="package.json" />
