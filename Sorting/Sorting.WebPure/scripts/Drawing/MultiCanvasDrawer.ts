@@ -8,13 +8,14 @@
 
 		constructor(document: Document, drawParams: IDrawingParams) {
 			this.document = document;
+			let rankingSystem = new Tools.RankingSystem();
 			this.sortings = [
-				new Algorithms.BubbleSort(),
-				new Algorithms.InsertionSort(),
-				new Algorithms.HeapSort(),
-				new Algorithms.MergeSort(),
-				new Algorithms.QuickSort(),
-				new Algorithms.SelectionSort()
+				new Algorithms.BubbleSort(rankingSystem),
+				new Algorithms.InsertionSort(rankingSystem),
+				new Algorithms.HeapSort(rankingSystem),
+				new Algorithms.MergeSort(rankingSystem),
+				new Algorithms.QuickSort(rankingSystem),
+				new Algorithms.SelectionSort(rankingSystem)
 			];
 			this.drawParams = drawParams;
 		}

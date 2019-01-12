@@ -1,8 +1,21 @@
 ﻿namespace Algorithms {
+	import RankingSystem = Tools.RankingSystem;
+
 	export class SortBase {
+		private rankingSystem: RankingSystem;
 		private intermediateSorts: number[][];
 		private start: number;
 		private end: number;
+		private name: string;
+
+		constructor(rankingSystem: RankingSystem) {
+			this.rankingSystem = rankingSystem;
+			this.name = this.constructor.name;
+		}
+
+		public getRank(): number {
+			return this.rankingSystem.getRank(this.name);
+		}
 
 		protected copy(array: number[]): number[] {
 			const newArray: number[] = [];
@@ -29,6 +42,7 @@
 
 		protected stopWatch(): void {
 			this.end = new Date().getTime();
+			this.rankingSystem.add(this.name, this.getDuration());
 		}
 
 		public getDuration(): number {

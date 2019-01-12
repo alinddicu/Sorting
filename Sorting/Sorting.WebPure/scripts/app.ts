@@ -1,5 +1,5 @@
 ﻿const drawParams = {
-	step: 10,
+	step: 1,
 	delay: 50,
 	penColor: "lime",
 	backgroundColor: "black",
@@ -7,6 +7,6 @@
 };
 
 function draw() {
-	const arrayToSort = new Tools.RandomArrayGenerator().Generate(34, 1);
+	const arrayToSort = new Tools.RandomArrayGenerator().Generate(800, 1);
 	new Drawing.MultiCanvasDrawer(document, drawParams).draw(arrayToSort);
 }

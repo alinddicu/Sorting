@@ -2,15 +2,15 @@
 	export class RankingSystem {
 		private ranking: Candidate[] = [];
 
-		public Clear(): void {
+		public clear(): void {
 			this.ranking = [];
 		}
 
-		public Add(sortName: string, duration: number): void {
+		public add(sortName: string, duration: number): void {
 			this.ranking.push(new Candidate(sortName, duration));
 		}
 
-		public Get(sortName: string): number {
+		public getRank(sortName: string): number {
 			const rank = this.ranking
 				.sort((a: Candidate, b: Candidate) => (a.duration - b.duration))
 				.map((candidate, index) => new Rank(candidate, index ))

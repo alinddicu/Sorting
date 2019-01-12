@@ -42,7 +42,8 @@
 			const sorting = this.getDivId().split("sort")[0];
 			const sortingFormatted = sorting[0].toUpperCase() + sorting.substr(1).toLowerCase();
 			const duration = this.sorting.getDuration();
-			const text = `${sortingFormatted} Sort (${duration}ms)`;
+			const rank = this.sorting.getRank();
+			const text = `${sortingFormatted} Sort (${duration}ms) Rank: ${rank}`;
 			canvasCtx.strokeText(text, 10, 20);
 		}
 
