@@ -1,4 +1,4 @@
-﻿function draw() {
+﻿function sort() {
 	const drawParams = {
 		step: (document.getElementById("step") as HTMLFormElement).valueAsNumber as number,
 		delay: (document.getElementById("delay") as HTMLFormElement).valueAsNumber as number,

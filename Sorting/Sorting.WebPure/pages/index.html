@@ -15,9 +15,9 @@
 	<script src="scripts/Tools/RankingSystem.js"></script>
 	<script src="scripts/app.js"></script>
 	<link rel="stylesheet" href="../styles/app.css" />
-	<title>Sortings</title>
+	<title>Array sortings</title>
 </head>
-<body onload="draw();">
+<body onload="sort();">
 	<div id="params">
 		<label for="arraySize">Array size</label>
 		<input id="arraySize" type="number" placeholder="array size" value="34" min="10" max="800" />
@@ -33,7 +33,7 @@
 		<input id="backgroundColor" type="text" placeholder="background color" value="black" />
 		<label for="fontSize">Font size</label>
 		<input id="fontSize" type="number" placeholder="font size" value="16" min="5" max="40" />
-		<input id="drawButton" type="button" onclick="draw();" value="Draw" />
+		<input id="drawButton" type="button" onclick="sort();" value="Sort" />
 	</div>
 	<div id="showHideParams-container">
 		<input id="showHideParams" alt="Show/Hide Params" title="Show/Hide Params" type="checkbox" onclick="toggle();">
