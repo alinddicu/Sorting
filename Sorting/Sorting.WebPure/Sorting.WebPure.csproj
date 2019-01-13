@@ -40,6 +40,7 @@
     <TypeScriptCompile Include="scripts\Drawing\SingleCanvasDrawer.ts" />
     <TypeScriptCompile Include="scripts\Tools\RandomArrayGenerator.ts" />
     <TypeScriptCompile Include="scripts\Tools\RankingSystem.ts" />
+    <TypeScriptCompile Include="webpack.config.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="package.json" />
@@ -47,9 +48,11 @@
   <ItemGroup>
     <Folder Include="bundle-dev\" />
     <Folder Include="bundle-prod\" />
+    <Folder Include="dist\" />
     <Folder Include="transpiled\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="templates\index.html" />
     <Content Include="tsconfig.json" />
   </ItemGroup>
   <PropertyGroup>

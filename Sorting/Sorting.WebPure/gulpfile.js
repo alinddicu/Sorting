@@ -1,10 +1,11 @@
-﻿/// <binding AfterBuild='dev-bundle' Clean='dev-clean-bundle' ProjectOpened='dev-watch-bundle' />
+﻿/// <binding AfterBuild='dev-bundle' Clean='dev-clean-bundle' ProjectOpened='dev-watch-bundle, prod-watch-bundle' />
 /*
 This file is the main entry point for defining Gulp tasks and using Gulp plugins.
 Click here to learn more. http://go.microsoft.com/fwlink/?LinkId=518007
 */
 
 var gulp = require('gulp');
+var concat = require('gulp-concat');
 var del = require('del');
 var watch = require('gulp-watch');
 
@@ -41,4 +42,24 @@ gulp.task('dev-bundle', function () {
 
 gulp.task('dev-watch-bundle', function () {
     gulp.watch(allPaths, ['dev-clean-bundle', 'dev-bundle']);
+});
+
+/*********************************** PROD *******************************************/
+
+gulp.task('prod-clean-bundle', function () {
+	return	del(['bundle-prod/*']);
+});
+
+gulp.task('prod-pack-js', function() {
+	return gulp.src(['transpiled/**/*.js'])
+		.pipe(concat('scripts.js'))
+		.pipe(gulp.dest('bundle-prod'));
+});
+
+gulp.task('prod-move-css', function() {
+	gulp.src(paths.styles).pipe(gulp.dest('bundle-prod'));
+});
+
+gulp.task('prod-watch-bundle', function () {
+	gulp.watch(allPaths, ['prod-clean-bundle', 'prod-pack-js', 'prod-move-css']);
 });

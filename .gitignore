@@ -244,3 +244,5 @@ ModelManifest.xml
 /Sorting/Sorting.WebPure/transpiled
 /Sorting/Sorting.WebPure/built-dev
 /Sorting/Sorting.WebPure/bundle-dev
+/Sorting/Sorting.WebPure/dist
+/Sorting/Sorting.WebPure/bundle-prod
