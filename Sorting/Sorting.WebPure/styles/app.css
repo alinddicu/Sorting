@@ -51,7 +51,7 @@ div#showHideParams-container {
 	position: absolute;
 	margin: 0;
 	padding: 0;
-	left: 8px;
+	left: 6px;
 	top: 8px;
 }
 
@@ -62,7 +62,7 @@ label {
 	width: 130px;
 }
 
-.form-line {
+.form-line, div#copyright a {
 	padding: 5px;
 }
 
@@ -71,6 +71,16 @@ div#canvas-container {
 	position: relative;
 }
 
-div.form-line:last-child {
+div.draw-button {
 	text-align: right;
+}
+
+div#copyright {
+	text-align: right;
+}
+
+div#copyright a, div#copyright a:visited, div#copyright a:hover, div#copyright a:active {
+	text-decoration: none;
+	color: black;
+	font-weight: bold;
 }
