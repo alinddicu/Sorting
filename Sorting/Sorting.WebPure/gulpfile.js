@@ -13,14 +13,16 @@ var paths = {
 	transpiled: ['transpiled/**/*.js', 'transpiled/**/*.map'],
 	typescript: ['scripts/**/*.ts'],
 	pages: ['pages/**/*.html'],
-	styles: ['styles/*']
+	styles: ['styles/*'],
+	images: ['images/*']
 };
 
-var allPaths = []
+var watchPaths = []
 	.concat(paths.transpiled)
 	.concat(paths.typescript)
 	.concat(paths.pages)
-	.concat(paths.styles);
+	.concat(paths.styles)
+	.concat(paths.images);
 
 gulp.task('dev-clean-bundle', function () {
 	return	del(['bundle-dev/*']);
@@ -31,6 +33,7 @@ function moveAll() {
 	gulp.src(paths.transpiled).pipe(gulp.dest('bundle-dev/scripts'));
 	gulp.src(paths.pages).pipe(gulp.dest('bundle-dev'));
 	gulp.src(paths.styles).pipe(gulp.dest('bundle-dev'));
+	gulp.src(paths.images).pipe(gulp.dest('bundle-dev/images'));
 }
 
 gulp.task('dev-bundle', function () {
@@ -41,7 +44,7 @@ gulp.task('dev-bundle', function () {
 });
 
 gulp.task('dev-watch-bundle', function () {
-    gulp.watch(allPaths, ['dev-clean-bundle', 'dev-bundle']);
+    gulp.watch(watchPaths, ['dev-clean-bundle', 'dev-bundle']);
 });
 
 /*********************************** PROD *******************************************/
@@ -61,5 +64,5 @@ gulp.task('prod-move-css', function() {
 });
 
 gulp.task('prod-watch-bundle', function () {
-	gulp.watch(allPaths, ['prod-clean-bundle', 'prod-pack-js', 'prod-move-css']);
+	gulp.watch(watchPaths, ['prod-clean-bundle', 'prod-pack-js', 'prod-move-css']);
 });
