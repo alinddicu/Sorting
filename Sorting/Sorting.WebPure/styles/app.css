@@ -38,12 +38,10 @@ div#params {
 	border-color: black;
 	border: solid;
 	border-width: 1px;
-	padding: 0;
+	padding: 1px;
 	margin: 0;
-}
-
-br.paramsSpacer {
-	display: none;
+	left: 8px;
+	top: 9px;
 }
 
 div#showHideParams-container {
@@ -51,6 +49,10 @@ div#showHideParams-container {
 	z-index: 2;
 	opacity: 1;
 	position: absolute;
+	margin: 0;
+	padding: 0;
+	left: 8px;
+	top: 8px;
 }
 
 label {
