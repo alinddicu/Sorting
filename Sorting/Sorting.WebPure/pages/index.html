@@ -7,6 +7,8 @@
 	<meta name="author" content="Alin Dicu">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+	<title>Sorting algorithms</title>
+
 	<script src="scripts/Algorithms/SortBase.js"></script>
 	<script src="scripts/Algorithms/BubbleSort.js"></script>
 	<script src="scripts/Algorithms/InsertionSort.js"></script>
@@ -19,11 +21,11 @@
 	<script src="scripts/Tools/RandomArrayGenerator.js"></script>
 	<script src="scripts/Tools/RankingSystem.js"></script>
 	<script src="scripts/app.js"></script>
+
 	<link rel="stylesheet" href="../styles/app.css" />
-	<title>Sorting algorithms</title>
 </head>
 <body onload="sort();">
-<div id="params" style="position: absolute; padding-left: 20px;">
+<div id="params">
 	<h2>Sorting parameters</h2>
 	<div class="form-line">
 		<label for="arraySize">Array size</label>
@@ -34,7 +36,7 @@
 		<input id="startValue" type="number" placeholder="start value" value="1" min="1" max="1000"/>
 	</div>
 	<div class="form-line">
-		<label for="step">Step</label>
+		<label for="step">X drawing step</label>
 		<input id="step" type="number" placeholder="step" value="10" min="1" max="20"/>
 	</div>
 	<div class="form-line">
@@ -53,15 +55,15 @@
 		<label for="fontSize">Font size</label>
 		<input id="fontSize" type="number" placeholder="font size" value="16" min="5" max="40"/>
 	</div>
-	<div class="form-line" style="text-align: right;">
+	<div class="form-line">
 		<label for="drawButton"></label>
 		<button id="drawButton" onclick="sort();">Sort</button>
 	</div>
 </div>
-	<div id="showHideParams-container" style="position: absolute">
-		<input id="showHideParams" alt="Show/Hide Parameters" title="Show/Hide Parameters" type="checkbox" onclick="toggle();">
+	<div id="showHideParams-container">
+		<input id="showHideParams" alt="Show/Hide Parameters" title="Show/Hide Parameters" type="checkbox" onclick="showHideParams();">
 	</div>
-	<div style="text-align: center; position: relative">
+	<div id="canvas-container">
 		<div id="bubblesort" class="canvas-container"></div>
 		<div id="insertionsort" class="canvas-container"></div>
 		<div id="heapsort" class="canvas-container"></div>
@@ -72,7 +74,7 @@
 </body>
 </html>
 <script>
-	function toggle() {
+	function showHideParams() {
 		var div = document.getElementById("params");
 		var showParams = document.getElementById("showHideParams").checked;
 		if (showParams)

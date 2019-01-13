@@ -26,6 +26,8 @@ div#params {
 	opacity: 1;
 	background-color: white;
 	padding: 0 5px 5px 0;
+	position: absolute;
+	padding-left: 20px;
 }
 
 br.paramsSpacer {
@@ -36,6 +38,7 @@ div#showHideParams-container {
 	display: inline-block;
 	z-index: 2;
 	opacity: 1;
+	position: absolute;
 }
 
 label {
@@ -47,4 +50,13 @@ label {
 
 .form-line {
 	padding: 5px;
+}
+
+div#canvas-container {
+	text-align: center;
+	position: relative;
+}
+
+div.form-line:last-child {
+	text-align: right;
 }
