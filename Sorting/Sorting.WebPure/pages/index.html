@@ -18,29 +18,45 @@
 	<title>Array sortings</title>
 </head>
 <body onload="sort();">
-	<div id="params">
+<div id="params" style="position: absolute; padding-left: 20px;">
+	<h2>Sorting parameters</h2>
+	<div class="form-line">
 		<label for="arraySize">Array size</label>
-		<input id="arraySize" type="number" placeholder="array size" value="34" min="10" max="800" />
+		<input id="arraySize" type="number" placeholder="array size" value="34" min="10" max="800"/>
+	</div>
+	<div class="form-line">
 		<label for="startValue">Start value</label>
-		<input id="startValue" type="number" placeholder="start value" value="1" min="1" max="1000" />
+		<input id="startValue" type="number" placeholder="start value" value="1" min="1" max="1000"/>
+	</div>
+	<div class="form-line">
 		<label for="step">Step</label>
-		<input id="step" type="number" placeholder="step" value="10" min="1" max="20" />
+		<input id="step" type="number" placeholder="step" value="10" min="1" max="20"/>
+	</div>
+	<div class="form-line">
 		<label for="delay">Delay</label>
-		<input id="delay" type="number" placeholder="delay" value="50" min="0" max="10000" />
+		<input id="delay" type="number" placeholder="delay" value="50" min="0" max="10000"/>
+	</div>
+	<div class="form-line">
 		<label for="penColor">Pen color</label>
-		<input id="penColor" type="text" placeholder="pen color" value="lime" />
+		<input id="penColor" type="text" placeholder="pen color" value="lime"/>
+	</div>
+	<div class="form-line">
 		<label for="backgroundColor">Background color</label>
-		<input id="backgroundColor" type="text" placeholder="background color" value="black" />
+		<input id="backgroundColor" type="text" placeholder="background color" value="black"/>
+	</div>
+	<div class="form-line">
 		<label for="fontSize">Font size</label>
-		<input id="fontSize" type="number" placeholder="font size" value="16" min="5" max="40" />
-		<input id="drawButton" type="button" onclick="sort();" value="Sort" />
+		<input id="fontSize" type="number" placeholder="font size" value="16" min="5" max="40"/>
 	</div>
-	<div id="showHideParams-container">
-		<input id="showHideParams" alt="Show/Hide Params" title="Show/Hide Params" type="checkbox" onclick="toggle();">
+	<div class="form-line" style="text-align: right;">
+		<label for="drawButton"></label>
+		<button id="drawButton" onclick="sort();">Sort</button>
 	</div>
-	<br id="paramsSpacer1" class="paramsSpacer" />
-	<br id="paramsSpacer2" class="paramsSpacer" />
-	<div style="text-align: center">
+</div>
+	<div id="showHideParams-container" style="position: absolute">
+		<input id="showHideParams" alt="Show/Hide Parameters" title="Show/Hide Parameters" type="checkbox" onclick="toggle();">
+	</div>
+	<div style="text-align: center; position: relative">
 		<div id="bubblesort" class="canvas-container"></div>
 		<div id="insertionsort" class="canvas-container"></div>
 		<div id="heapsort" class="canvas-container"></div>

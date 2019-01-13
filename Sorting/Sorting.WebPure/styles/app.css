@@ -8,7 +8,7 @@
 	margin: 1px;
 }
 
-input[type=number], input[type=text], input[type=button] {
+input[type=number], input[type=text], button[id=drawButton] {
 	width: 75px;
 	margin: 0;
 	-webkit-box-sizing: border-box;
@@ -22,6 +22,10 @@ input[type=number], input[type=text], input[type=button] {
 
 div#params {
 	display: none;
+	z-index: 1;
+	opacity: 1;
+	background-color: white;
+	padding: 0 5px 5px 0;
 }
 
 br.paramsSpacer {
@@ -30,8 +34,17 @@ br.paramsSpacer {
 
 div#showHideParams-container {
 	display: inline-block;
+	z-index: 2;
+	opacity: 1;
 }
 
 label {
 	font-weight: bold;
+	float: left;
+	display: block;
+	width: 130px;
+}
+
+.form-line {
+	padding: 5px;
 }
