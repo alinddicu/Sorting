@@ -1,14 +1,19 @@
 ﻿function sort() {
 	function valueOrDefault<T>(elementId: string, defaultValue: any): T {
 		const inputField = document.getElementById(elementId) as HTMLFormElement;
+
 		let value;
-		if (typeof defaultValue === "number") {
-			value = inputField.valueAsNumber;
-		}
-		else if (typeof defaultValue === "string") {
-			value = inputField.valueAsString;
-		} else {
-			value = inputField.valueAsDate;
+		try {
+			if (typeof defaultValue === "number") {
+				value = inputField.valueAsNumber;
+			}
+			else if (typeof defaultValue === "string") {
+				value = inputField.value;
+			} else {
+				value = inputField.valueAsDate;
+			}
+		} catch (e) {
+			console.error(`Problem parsing '${elementId}'`);
 		}
 
 		return value ? value : defaultValue;
