@@ -5,5 +5,6 @@
 		penColor: string;
 		backgroundColor: string;
 		fontSize: number;
+		startValue: number;
 	}
 }

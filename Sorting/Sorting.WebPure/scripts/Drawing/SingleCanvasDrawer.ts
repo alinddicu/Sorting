@@ -29,7 +29,7 @@
 				div.appendChild<HTMLCanvasElement>(canvas);
 			}
 
-			canvas.height = sortedNumbersCount * ratio;
+			canvas.height = (sortedNumbersCount + this.drawParams.startValue) * ratio;
 			canvas.width = sortedNumbersCount * ratio;
 			canvas.style.backgroundColor = this.drawParams.backgroundColor;
 
