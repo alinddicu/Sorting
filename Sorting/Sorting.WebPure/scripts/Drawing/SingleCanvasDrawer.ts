@@ -45,7 +45,7 @@
 		}
 
 		private writeSortingText(canvasCtx: CanvasRenderingContext2D): void {
-			canvasCtx.font = `${this.drawParams.fontSize}px Times New Roman`;
+			canvasCtx.font = `${this.drawParams.fontSize}px Calibri`;
 			const sorting = this.getDivId().split("sort")[0];
 			const sortingFormatted = sorting[0].toUpperCase() + sorting.substr(1).toLowerCase();
 			const duration = this.sorting.getDuration();
