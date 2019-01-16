@@ -1,4 +1,8 @@
-﻿h2#sorting-param-title {
+﻿body {
+	background-color: #8ee4ae;
+}
+
+h2#sorting-param-title {
 	padding: 0;
 	padding-left: 15px;
 	margin: 0;
@@ -7,35 +11,45 @@
 .canvas-container {
 	border-style: solid;
 	border-width: 1px;
-	border-color: black;
+	border-color: #05386b;
 	border-radius: 5px;
 	padding: 3px 3px 0 3px;
 	display: inline-block;
 	margin: 1px;
 }
 
-input[type=number], input[type=text], button[id=drawButton] {
+input[type=number], input[type=text], button[id=sortButton] {
 	width: 75px;
 	margin: 0;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	border: 1px dotted;
+	border-color: #05386b;
 	border-radius: 5px;
 	-webkit-appearance: none;
 	text-align: center;
+}
+
+input[type=number], input[type=text] {
+	color: #05386b;
+}
+
+button[id=sortButton] {
+	color: #edf5e1;
+	background-color: #379683;
 }
 
 div#params {
 	display: none;
 	z-index: 1;
 	opacity: 1;
-	background-color: white;
-	padding: 0 5px 5px 0;
+	background-color: #8ee4ae;
+	padding: 5px 15px 10px 5px;
 	position: absolute;
 	padding-left: 20px;
-	color: black;
-	border-color: black;
+	color: #05386b;
+	border-color: #05386b;
 	border: solid;
 	border-width: 1px;
 	padding: 1px;
@@ -71,7 +85,7 @@ div#canvas-container {
 	position: relative;
 }
 
-div.draw-button {
+div.sort-button {
 	text-align: right;
 }
 

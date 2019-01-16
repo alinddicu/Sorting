@@ -23,13 +23,13 @@
 	const drawParams = {
 		step: valueOrDefault<number>("step", 10),
 		delay: valueOrDefault<number>("delay", 50),
-		penColor: valueOrDefault<string>("penColor", "lime"),
-		backgroundColor: valueOrDefault<string>("backgroundColor", "black"),
+		penColor: valueOrDefault<string>("penColor", "#edf5e1"),
+		backgroundColor: valueOrDefault<string>("backgroundColor", "#379683"),
 		fontSize: valueOrDefault<number>("fontSize", 16),
 		startValue: startValue
 	};
 
-	const arraySize = valueOrDefault<number>("arraySize", 34);
+	const arraySize = valueOrDefault<number>("arraySize", 32);
 	const arrayToSort = new Tools.RandomArrayGenerator().Generate(arraySize, startValue);
 	new Drawing.MultiCanvasDrawer(document, drawParams).draw(arrayToSort);
 }
