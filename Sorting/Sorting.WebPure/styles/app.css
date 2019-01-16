@@ -91,6 +91,7 @@ div.sort-button {
 
 div#copyright {
 	text-align: right;
+	padding: 0 10px 5px 0;
 }
 
 div#copyright a, div#copyright a:visited, div#copyright a:hover, div#copyright a:active {
