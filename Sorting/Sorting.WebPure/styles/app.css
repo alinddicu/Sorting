@@ -52,6 +52,7 @@ div#params {
 	border-color: #05386b;
 	border: solid;
 	border-width: 1px;
+	border-radius: 5px;
 	padding: 1px;
 	margin: 0;
 	left: 8px;
@@ -96,6 +97,6 @@ div#copyright {
 
 div#copyright a, div#copyright a:visited, div#copyright a:hover, div#copyright a:active {
 	text-decoration: none;
-	color: black;
+	color: #05386b;
 	font-weight: bold;
 }

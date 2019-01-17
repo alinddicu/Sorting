@@ -50,7 +50,7 @@
 			const sortingFormatted = sorting[0].toUpperCase() + sorting.substr(1).toLowerCase();
 			const duration = this.sorting.getDuration();
 			const rank = this.sorting.getRank();
-			const text = `${sortingFormatted} Sort (${duration}ms) Rank: ${rank}`;
+			const text = `${sortingFormatted} Sort (${duration}ms) ${Tools.OrdinalHelper.toOrdinal(rank)}`;
 			canvasCtx.strokeText(text, 10, 20);
 		}
 

@@ -5,22 +5,22 @@
 
 	public static class OrdinalExtensions
 	{
-		public static string ToOrdinal(this long number)
+		public static string ToOrdinal(this long numberToFormat)
 		{
-			if (number < 0) return number.ToString();
-			long rem = number % 100;
-			if (rem >= 11 && rem <= 13) return number + "th";
+			if (numberToFormat < 0) return numberToFormat.ToString();
+			long rem = numberToFormat % 100;
+			if (rem >= 11 && rem <= 13) return numberToFormat + "th";
 
-			switch (number % 10)
+			switch (numberToFormat % 10)
 			{
 				case 1:
-					return number + "st";
+					return numberToFormat + "st";
 				case 2:
-					return number + "nd";
+					return numberToFormat + "nd";
 				case 3:
-					return number + "rd";
+					return numberToFormat + "rd";
 				default:
-					return number + "th";
+					return numberToFormat + "th";
 			}
 		}
 
@@ -74,7 +74,7 @@
 			};
 
 
-			// rough check whether it's a valid number
+			// rough check whether it's a valid numberToFormat
 			string temp = number.ToLower().Trim().Replace(" and ", " ");
 			string[] words = temp.Split(new[] { ' ', '-' }, StringSplitOptions.RemoveEmptyEntries);
 
