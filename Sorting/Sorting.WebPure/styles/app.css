@@ -3,8 +3,7 @@
 }
 
 h2#sorting-param-title {
-	padding: 0;
-	padding-left: 15px;
+	padding: 0 0 0 5px;
 	margin: 0;
 }
 
@@ -50,10 +49,8 @@ div#params {
 	padding-left: 20px;
 	color: #05386b;
 	border-color: #05386b;
-	border: solid;
-	border-width: 1px;
+	border: 1px solid;
 	border-radius: 5px;
-	padding: 1px;
 	margin: 0;
 	left: 8px;
 	top: 9px;
