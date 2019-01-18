@@ -44,9 +44,8 @@ div#params {
 	z-index: 1;
 	opacity: 1;
 	background-color: #8ee4ae;
-	padding: 5px 15px 10px 5px;
+	padding: 5px 15px 10px 20px;
 	position: absolute;
-	padding-left: 20px;
 	color: #05386b;
 	border-color: #05386b;
 	border: 1px solid;
