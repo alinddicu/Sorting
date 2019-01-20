@@ -28,19 +28,19 @@
     <Content Include="src\index.html" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="src\scripts\Algorithms\BubbleSort.ts" />
-    <TypeScriptCompile Include="src\scripts\Algorithms\HeapSort.ts" />
-    <TypeScriptCompile Include="src\scripts\Algorithms\InsertionSort.ts" />
-    <TypeScriptCompile Include="src\scripts\Algorithms\MergeSort.ts" />
-    <TypeScriptCompile Include="src\scripts\Algorithms\QuickSort.ts" />
-    <TypeScriptCompile Include="src\scripts\Algorithms\SelectionSort.ts" />
-    <TypeScriptCompile Include="src\scripts\Algorithms\SortBase.ts" />
-    <TypeScriptCompile Include="src\scripts\sorting-app.ts" />
-    <TypeScriptCompile Include="src\scripts\Drawing\IDrawingParams.ts" />
-    <TypeScriptCompile Include="src\scripts\Drawing\MultiCanvasDrawer.ts" />
-    <TypeScriptCompile Include="src\scripts\Drawing\SingleCanvasDrawer.ts" />
-    <TypeScriptCompile Include="src\scripts\Tools\RandomArrayGenerator.ts" />
-    <TypeScriptCompile Include="src\scripts\Tools\RankingSystem.ts" />
+    <TypeScriptCompile Include="src\scripts\Sorting\Algorithms\BubbleSort.ts" />
+    <TypeScriptCompile Include="src\scripts\Sorting\Algorithms\HeapSort.ts" />
+    <TypeScriptCompile Include="src\scripts\Sorting\Algorithms\InsertionSort.ts" />
+    <TypeScriptCompile Include="src\scripts\Sorting\Algorithms\MergeSort.ts" />
+    <TypeScriptCompile Include="src\scripts\Sorting\Algorithms\QuickSort.ts" />
+    <TypeScriptCompile Include="src\scripts\Sorting\Algorithms\SelectionSort.ts" />
+    <TypeScriptCompile Include="src\scripts\Sorting\Algorithms\SortBase.ts" />
+    <TypeScriptCompile Include="src\scripts\Sorting\sorting-app.ts" />
+    <TypeScriptCompile Include="src\scripts\Sorting\Drawing\IDrawingParams.ts" />
+    <TypeScriptCompile Include="src\scripts\Sorting\Drawing\MultiCanvasDrawer.ts" />
+    <TypeScriptCompile Include="src\scripts\Sorting\Drawing\SingleCanvasDrawer.ts" />
+    <TypeScriptCompile Include="src\scripts\Sorting\Tools\RandomArrayGenerator.ts" />
+    <TypeScriptCompile Include="src\scripts\Sorting\Tools\RankingSystem.ts" />
     <TypeScriptCompile Include="webpack.config.ts" />
   </ItemGroup>
   <ItemGroup>
@@ -53,7 +53,7 @@
     <Content Include="tsconfig.json" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="src\scripts\Tools\OrdinalHelper.ts" />
+    <TypeScriptCompile Include="src\scripts\Sorting\Tools\OrdinalHelper.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
