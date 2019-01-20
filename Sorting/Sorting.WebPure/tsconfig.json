@@ -2,12 +2,15 @@
 	"compilerOptions": {
 		"noImplicitAny": true,
 		"noEmitOnError": true,
-		"sourceMap": true,
+		"inlineSourceMap": true,
+		"inlineSources": true,
 		"target": "es6",
-		"outDir": "transpiled"
+		"outDir": "transpiled",
+		"types": [],
+		"typeRoots": []
 	},
 	"include": [
-		"./scripts/**/*.ts"
+		"./src/scripts/**/*.ts"
 	],
 	"compileOnSave": true
 }
