@@ -1,4 +1,4 @@
-﻿namespace Drawing {
+﻿namespace Sorting.Drawing {
 	import SortBase = Algorithms.SortBase;
 
 	export class MultiCanvasDrawer {
@@ -8,7 +8,7 @@
 
 		constructor(document: Document, drawParams: IDrawingParams) {
 			this.document = document;
-			let rankingSystem = new Tools.RankingSystem();
+			const rankingSystem = new Tools.RankingSystem();
 			this.sortings = [
 				new Algorithms.BubbleSort(rankingSystem),
 				new Algorithms.InsertionSort(rankingSystem),

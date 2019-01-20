@@ -1,4 +1,4 @@
-﻿namespace Algorithms {
+﻿namespace Sorting.Algorithms {
 	export class QuickSort extends SortBase {
 		private arrayCopy: number[];
 		public execute(unsortedList: number[]): number[] {

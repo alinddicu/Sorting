@@ -1,4 +1,4 @@
-﻿namespace Algorithms {
+﻿namespace Sorting.Algorithms {
 	export class MergeSort extends SortBase {
 		private arrayCopy: number[];
 

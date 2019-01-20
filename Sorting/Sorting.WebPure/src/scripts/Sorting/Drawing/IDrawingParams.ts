@@ -1,4 +1,4 @@
-﻿namespace Drawing {
+﻿namespace Sorting.Drawing {
 	export interface IDrawingParams {
 		step: number;
 		delay: number;

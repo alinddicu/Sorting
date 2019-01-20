@@ -1,4 +1,4 @@
-﻿namespace Algorithms {
+﻿namespace Sorting.Algorithms {
 	import RankingSystem = Tools.RankingSystem;
 
 	export class SortBase {

@@ -1,4 +1,4 @@
-﻿namespace Tools {
+﻿namespace Sorting.Tools {
 	export class RankingSystem {
 		private ranking: Candidate[] = [];
 

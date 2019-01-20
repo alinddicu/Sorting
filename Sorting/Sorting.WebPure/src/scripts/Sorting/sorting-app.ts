@@ -30,6 +30,6 @@
 	};
 
 	const arraySize = valueOrDefault<number>("arraySize", 32);
-	const arrayToSort = new Tools.RandomArrayGenerator().Generate(arraySize, startValue);
-	new Drawing.MultiCanvasDrawer(document, drawParams).draw(arrayToSort);
+	const arrayToSort = new Sorting.Tools.RandomArrayGenerator().Generate(arraySize, startValue);
+	new Sorting.Drawing.MultiCanvasDrawer(document, drawParams).draw(arrayToSort);
 }

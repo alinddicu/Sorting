@@ -1,4 +1,4 @@
-﻿namespace Algorithms {
+﻿namespace Sorting.Algorithms {
 	export class InsertionSort extends SortBase {
 		public execute(unsortedList: number[]): number[] {
 			super.execute(unsortedList);

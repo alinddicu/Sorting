@@ -1,4 +1,4 @@
-﻿namespace Tools {
+﻿namespace Sorting.Tools {
 	export class RandomArrayGenerator {
 		public Generate(length: number, start: number): number[] {
 			const array = [];

@@ -1,4 +1,4 @@
-﻿namespace Algorithms {
+﻿namespace Sorting.Algorithms {
 	export class HeapSort extends SortBase {
 		private arrayCopy: number[];
 

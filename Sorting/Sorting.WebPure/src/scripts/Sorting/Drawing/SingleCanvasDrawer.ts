@@ -1,4 +1,4 @@
-﻿namespace Drawing {
+﻿namespace Sorting.Drawing {
 	import SortBase = Algorithms.SortBase;
 
 	export class SingleCanvasDrawer {
