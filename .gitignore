@@ -240,9 +240,9 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
-/Sorting/Sorting.WebPure/wwwroot
-/Sorting/Sorting.WebPure/transpiled
-/Sorting/Sorting.WebPure/built-dev
-/Sorting/Sorting.WebPure/bundle-dev
+
 /Sorting/Sorting.WebPure/dist
-/Sorting/Sorting.WebPure/bundle-prod
+/Sorting/Sorting.WebPure/node_modules
+/Sorting/Sorting.WebPure/transpiled
+/Sorting/Sorting.WebPure/src/scripts/**/*.js.map
+/Sorting/Sorting.WebPure/src/scripts/**/*.js
