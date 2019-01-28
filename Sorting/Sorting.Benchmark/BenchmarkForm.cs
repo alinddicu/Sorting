@@ -15,7 +15,7 @@
 		private FlowLayoutPanel _basePanel;
 		private readonly List<IBenchBackgroundWorker> _benchBackgroundWorkers = new List<IBenchBackgroundWorker>();
 		private readonly UniqueElementsGenerator _generator = new UniqueElementsGenerator();
-		private readonly RankingSystem _rankingSystem = new RankingSystem();
+		private readonly RankingSystem _rankingSystem = new RankingSystem(6);
 
 		private IEnumerable<int> _unsortedList;
 

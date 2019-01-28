@@ -89,8 +89,14 @@
 		public void SetSortRanks()
 		{
 			var sortName = _sortBase.GetType().Name;
-			var rank = _sortBase.Rank.ToOrdinal();
-			var sortNameText = $"{sortName} - {rank} ({_sortBase.Duration} ticks)";
+			var rank = _sortBase.Rank;
+			var sortNameText = $"{sortName}";
+			if (rank.HasValue)
+			{
+				var rankValue = rank.Value.ToOrdinal();
+				sortNameText += $" - {rankValue} ({_sortBase.Duration} ticks)";
+			}
+
 			var sortNameWidth = sortNameText.Length * 7;
 			_sortNameLabel.Text = sortNameText;
 			_sortNameLabel.Width = sortNameWidth;

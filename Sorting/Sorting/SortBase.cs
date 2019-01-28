@@ -19,7 +19,7 @@
 		
 		public List<ICollection<int>> IntermediateSorts { get; } = new List<ICollection<int>>();
 
-		public int Rank => _rankingSystem.Get(_sortName);
+		public int? Rank => _rankingSystem.Get(_sortName);
 
 		public long Duration { get; private set; }
 
